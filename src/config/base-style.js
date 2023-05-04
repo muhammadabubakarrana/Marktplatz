@@ -12,6 +12,8 @@ export const baseStyle = {
 
     fontSize: value => scale(value),
 
+    margin: value => scale(value),
+
     padding: value => scale(value),
 
     lineHight: value => verticalScale(value),

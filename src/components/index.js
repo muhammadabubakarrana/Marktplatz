@@ -17,3 +17,4 @@ export * from "./marketplace-list";
 export * from "./mobile-navigation";
 export * from "./mobile-footer";
 export * from "./header-expanded-mobile";
+export * from "./dynamic-images";

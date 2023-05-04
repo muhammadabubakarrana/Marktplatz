@@ -14,7 +14,7 @@ export const Rechtlich = () => {
             {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
 
             {/* // Metashooters Container */}
-            <SpecialScrollView style={[styles.metashooterContainer]}>
+            <View style={[styles.metashooterContainer]}>
 
                 <Text style={[styles.mainHeading, isSmallDevice && styles.mobilemainHeading, { alignSelf: "center" }]} >Metashooters</Text>
                 <Text style={[styles.subHeading, isSmallDevice && styles.mobilesubHeading, { alignSelf: "center" }]} >Sammle deine Stars!</Text>
@@ -26,7 +26,7 @@ export const Rechtlich = () => {
 
                         <>
                             {/* onPress={() => myRef.current.focus()} */}
-                            <TouchableOpacity onPress={() => myRef.current.focus()} style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
+                            <TouchableOpacity style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
                                 <Text style={styles.authTxt} >Datenschutz</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
@@ -51,11 +51,11 @@ export const Rechtlich = () => {
                 </View>
                 {/* 3 Text Container */}
                 {/* ref={myRef} */}
-                <SpecialView ref={myRef} style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
+                <SpecialView style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
                     <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >Datenschutz</Text>
                     <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
                 </SpecialView>
-            </SpecialScrollView >
+            </View >
 
             {/* Footer */}
             {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
         paddingBottom: baseStyle.paddingBottom(70),
         // alignItems: "center",
         paddingTop: baseStyle.paddingTop(25),
-        height: 25000,
-        flex: 1
-        //height: 5000 //Dimensions.get("window").height        
+        //height: 25000,
+        //flex: 1
+        //height: 5000 //Dimensions.get("window").height
         // justifyContent: "center"
     },
     mainHeading: {
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         fontFamily: theme.font.Bold,
         marginTop: baseStyle.marginTop(10),
         // flexDirection: 'row',
-        //  marginLeft: baseStyle.marginLeft(-55),  
+        //  marginLeft: baseStyle.marginLeft(-55),
     },
     mobilesubHeading: {
         color: theme.colors.lightGrey,
@@ -236,3 +236,16 @@ const styles = StyleSheet.create({
         marginTop: baseStyle.marginTop(10)
     },
 });
+
+
+
+
+
+import art from "../assets/images/art/art.png";
+import artleft from "../assets/images/artleft/artleft.png";
+import artright from "../assets/images/artright/artright.png";
+
+
+
+
+

@@ -10,7 +10,7 @@ export const CollectionList = ({ style, data, showBar }) => {
             horizontal
             style={[style]}
             data={data}
-            showsHorizontalScrollIndicator={showBar ? true : false}
+            showsHorizontalScrollIndicator={showBar && isSmallDevice ? true : false}
             renderItem={({ item }) => (
                 <>
                     <TouchableOpacity style={[styles.block, isSmallDevice && styles.mobileblock]} >

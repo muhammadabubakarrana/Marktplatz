@@ -5,6 +5,7 @@ import art from "../assets/images/art/art.png";
 import artleft from "../assets/images/artleft/artleft.png";
 import artright from "../assets/images/artright/artright.png";
 import vector from "../assets/images/vector/vector.png";
+import { DynamicImages } from './dynamic-images';
 
 export const ProductImage = () => {
     const isSmallDevice = Dimensions.get("window").width < 768;
@@ -16,9 +17,10 @@ export const ProductImage = () => {
                 <Text style={[styles.subHeading, isSmallDevice && styles.mobilesubHeading]} >Star Name</Text>
                 <View style={styles.flexContainer}>
                     <View style={[styles.artContainer, isSmallDevice && styles.mobileartContainer]}>
-                        <Image source={art} style={[styles.art, isSmallDevice && styles.mobileart]} />
+                        {/* <Image source={art} style={[styles.art, isSmallDevice && styles.mobileart]} />
                         <Image source={artleft} style={[styles.artleft, isSmallDevice && styles.mobileartleft]} />
-                        <Image source={artright} style={[styles.artright, isSmallDevice && styles.mobileartright]} />
+                        <Image source={artright} style={[styles.artright, isSmallDevice && styles.mobileartright]} /> */}
+                        <DynamicImages />
                     </View>
                     <View style={styles.details}>
                         <View style={[styles.green, isSmallDevice && styles.mobilegreen]}>
