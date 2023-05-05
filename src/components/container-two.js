@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     blockPara: {
         fontSize: baseStyle.fontSize(15),
         lineHeight: baseStyle.lineHight(20),
-       // fontFamily: theme.font.regular,
+        // fontFamily: theme.font.regular,
         color: theme.colors.white,
         textAlign: "left",
         numberOfLines: 6,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     mobileblock: {
         flexDirection: "row",
         alignItems: "center",
-        //  justifyContent: "space-around",
+        justifyContent: "space-around",
         paddingHorizontal: baseStyle.paddingHorizontal(8)
     },
     txtBlock: {

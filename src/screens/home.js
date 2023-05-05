@@ -142,8 +142,9 @@ const styles = StyleSheet.create({
     mainBox: {
         backgroundColor: theme.colors.pink,
         //width: "100%",
-        paddingVertical: baseStyle.paddingVertical(20),
-        paddingHorizontal: baseStyle.paddingHorizontal(25),
+        paddingVertical: baseStyle.paddingVertical(10),
+        width: Dimensions.get("window").width,
+        // paddingHorizontal: baseStyle.paddingHorizontal(25),
         alignItems: "center"
     },
     mobilecontainer: {

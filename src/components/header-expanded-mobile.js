@@ -37,31 +37,31 @@ export const HeaderExpandedMobile = ({ visible, onRequestClose, ...restProps }) 
             <View style={styles.container}>
                 <View style={styles.modal}>
                     <View style={styles.flex} >
-                        <TouchableOpacity onPress={goToHome}>
+                        <TouchableOpacity onPressIn={goToHome} onPressOut={onRequestClose}>
                             <Image source={LogoTwo} style={styles.logo} resizeMode='contain' />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={onRequestClose} >
                             <Image source={X} style={styles.X} resizeMode='contain' />
                         </TouchableOpacity>
                     </View>
-                    <View style={{ alignItems: "center" }}>
+                    <View style={{ alignItems: "center", width: Dimensions.get("window").width }}>
                         {/* Search Bar */}
                         <View style={styles.flexSearch}>
                             <Image source={search} style={styles.search} resizeMode='contain' />
                             <Input placeholder="Search..." style={styles.input} />
                         </View>
                         {/* 1st Btn */}
-                        <TouchableOpacity onPress={goToMarket} style={styles.Btn}>
+                        <TouchableOpacity onPressOut={onRequestClose} onPressIn={goToMarket} style={styles.Btn}>
                             <Text style={styles.btnTxt} >Market</Text>
                         </TouchableOpacity>
 
                         {/* 2nd Btn */}
-                        <TouchableOpacity onPress={goToCollections} style={styles.Btn}>
+                        <TouchableOpacity onPressOut={onRequestClose} onPressIn={goToCollections} style={styles.Btn}>
                             <Text style={styles.btnTxt} >Collections</Text>
                         </TouchableOpacity>
 
                         {/* 3rd Btn */}
-                        <TouchableOpacity onPress={goToRECHTLICH} style={styles.Btn}>
+                        <TouchableOpacity onPressOut={onRequestClose} onPressIn={goToRECHTLICH} style={styles.Btn}>
                             <Text style={styles.btnTxt} >About Us</Text>
                         </TouchableOpacity>
                     </View>
@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     flex: {
         flexDirection: "row",
         justifyContent: "space-around",
-        alignItems: 'center'
+        alignItems: 'center',
+        width: Dimensions.get("window").width,
     },
     Btn: {
         borderRadius: baseStyle.borderRadius(25),

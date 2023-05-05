@@ -25,22 +25,22 @@ export const DynamicImages = () => {
         <>
             {isSmallDevice
                 ? (<View style={styles.mobileMainContainer}>
-                    <Image source={{ uri: selectedPhoto }} style={styles.mobileMainImage} />
+                    <Image resizeMode='contain' source={{ uri: selectedPhoto }} style={styles.mobileMainImage} />
                     <View style={{ flexDirection: 'row' }}>
                         {photos.map((photo) => (
                             <TouchableOpacity key={photo.id} onPress={() => handlePhotoPress(photo.uri)}>
-                                <Image source={{ uri: photo.uri }} style={styles.mobileSmallImage} />
+                                <Image resizeMode='contain' source={{ uri: photo.uri }} style={styles.mobileSmallImage} />
                             </TouchableOpacity>
                         ))}
                     </View>
                 </View>)
                 : (
                     <View style={styles.mainContainer}>
-                        <Image source={{ uri: selectedPhoto }} style={styles.mainImage} />
+                        <Image resizeMode='contain' source={{ uri: selectedPhoto }} style={styles.mainImage} />
                         <View style={{ flexDirection: 'row' }}>
                             {photos.map((photo) => (
                                 <TouchableOpacity key={photo.id} onPress={() => handlePhotoPress(photo.uri)}>
-                                    <Image source={{ uri: photo.uri }} style={styles.smallImages} />
+                                    <Image resizeMode='contain' source={{ uri: photo.uri }} style={styles.smallImages} />
                                 </TouchableOpacity>
                             ))}
                         </View>
@@ -63,22 +63,22 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     mainImage: {
-        height: height / 1.5, //baseStyle.height(443),
-        width: width / 3.2, //baseStyle.width(443)
+        height: baseStyle.height(200),
+        width: baseStyle.width(290)
     },
     smallImages: {
-        height: height / 6, //baseStyle.height(443),
-        width: width / 11.6, //baseStyle.width(443),
+        height: baseStyle.height(60),
+        width: baseStyle.width(60),
         margin: baseStyle.margin(7)
     },
     mobileMainImage: {
-        height: height / 2.7,
-        width: width / 2,
+        height: baseStyle.height(250),
+        width: baseStyle.width(250),
     },
     mobileSmallImage: {
-        height: height / 8.5,
-        width: width / 7,
-        margin: baseStyle.margin(7)
+        height: baseStyle.height(65),
+        width: baseStyle.width(60),
+        marginTop: baseStyle.marginTop(5),
     }
 
     //{ width: 50, height: 50, margin: 7 }

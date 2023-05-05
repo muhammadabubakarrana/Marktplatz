@@ -29,7 +29,7 @@ export const CardSection = ({ data, style }) => {
                     )
                         : (<View style={styles.card} >
                             <Text style={styles.TxtCard}> {item.title}</Text>
-                            <Image source={card} style={styles.cardImage} resizeMode='contain' />
+                            <Image source={card} style={styles.WebcardImage} resizeMode='contain' />
                             <Text numberOfLines={2} style={styles.paraCard}> {item.para}</Text>
                             <TouchableOpacity style={styles.AuthBtn}>
                                 <Text style={styles.authTxt} >Get yours!</Text>
@@ -87,17 +87,24 @@ const styles = StyleSheet.create({
     },
     mobilecard: {
         // marginRight: baseStyle.marginRight(-40),
-        // marginHorizontal: baseStyle.marginHorizontal(-10),
-        marginLeft: baseStyle.marginLeft(20),
-        //width: 150,
+        marginHorizontal: baseStyle.marginHorizontal(10),
+        // marginLeft: baseStyle.marginLeft(-30),
+        // width: "100%",
         //marginRight: baseStyle.marginRight(50),
+        // marginRight: baseStyle.marginRight(20),
+        // marginLeft: baseStyle.marginLeft(10),
         marginVertical: baseStyle.marginVertical(30),
         alignItems: "center"
     },
     cardImage: {
-        height: baseStyle.height(113),
-        width: baseStyle.width(201),
+        height: baseStyle.height(113),//113
+        width: baseStyle.width(175),//201
         marginVertical: baseStyle.marginVertical(10)
+    },
+    WebcardImage: {
+        height: baseStyle.height(113),//113
+        width: baseStyle.width(175),//201
+      //  marginVertical: baseStyle.marginVertical(10)
     },
     AuthBtn: {
         borderRadius: baseStyle.borderRadius(20),
@@ -111,13 +118,13 @@ const styles = StyleSheet.create({
         marginTop: baseStyle.marginTop(10)
     },
     mobileAuthBtn: {
-        borderRadius: baseStyle.borderRadius(20),
+        borderRadius: baseStyle.borderRadius(25),
         // paddingVertical: baseStyle.paddingVertical(4),
         // paddingHorizontal: baseStyle.paddingHorizontal(20),
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.black,
         backgroundColor: theme.colors.lightPurple,
-        width: "50%",
+        width: "30%",
         minWidth: baseStyle.minWidth(120),
         marginTop: baseStyle.marginTop(10)
     },

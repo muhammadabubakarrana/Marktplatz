@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     chipContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginTop: baseStyle.marginTop(35),
+        marginTop: baseStyle.marginTop(30),
         marginBottom: baseStyle.marginBottom(20)
     },
     mobileChipContainer: {
@@ -211,7 +211,8 @@ const styles = StyleSheet.create({
         marginLeft: baseStyle.marginLeft(10),
     },
     chip: {
-        marginRight: baseStyle.marginRight(8)
+        marginRight: baseStyle.marginRight(8),
+        marginTop: baseStyle.marginTop(3)
     },
     circleTxt: {
         color: theme.colors.white,

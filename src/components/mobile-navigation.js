@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
-import { baseStyle, theme } from "../config";
+import { baseStyle, routes, theme } from "../config";
 import LogoTwo from "../assets/images/LogoTwo/LogoTwo.png";
 import burgur from "../assets/images/burgur/burgur.png";
 import { HeaderExpandedMobile } from './header-expanded-mobile';
+import { useNavigation } from '@react-navigation/native';
 
 export const MobileNavigation = () => {
 
     const [showModal, setShowModal] = useState(false);
-
+    const navigation = useNavigation();
 
     const openModal = () => {
         setShowModal(true);
-    }
+    };
 
     const closeModal = () => {
         setShowModal(false);
-    }
+    };
+
+    const goToHome = () => {
+        navigation.navigate(routes.HOME)
+    };
+
+
 
     return (
         <>
             <View style={styles.navBar}>
-                <Image source={LogoTwo} style={styles.logo} resizeMode='contain' />
+                <TouchableOpacity onPress={goToHome}>
+                    <Image source={LogoTwo} style={styles.logo} resizeMode='contain' />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={openModal} >
                     <Image source={burgur} style={styles.burgur} resizeMode='contain' />
                 </TouchableOpacity>

@@ -326,7 +326,8 @@ const styles = StyleSheet.create({
         height: 250
     },
     details: {
-        paddingHorizontal: baseStyle.paddingHorizontal(10)
+        paddingHorizontal: baseStyle.paddingHorizontal(10),
+       // width: "45%"
     },
     vector: {
         height: baseStyle.height(30),
