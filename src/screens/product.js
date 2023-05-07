@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { AboutCollectable, DetailsList, FloorPricesList, Footer, MarketPlaceList, MobileFooter, MobileNavigation, NavigationContainer, PercentList, ProductImage, ProgressList } from '../components';
 import { baseStyle, theme } from '../config';
 import lower from "../assets/images/lower/lower.png";
@@ -59,90 +59,88 @@ export const Product = () => {
             {/* Navigation Container */}
             {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
 
-            {/* Product details */}
-            <ProductImage />
-
-            {/* About Collectable Section */}
-            <AboutCollectable />
-
-            {/* MarketPlace Details */}
-            <View style={[styles.container, isSmallDevice && styles.mobileContainer]} >
-                <Text Text style={[styles.heading, isSmallDevice && styles.mobileheading]} >In the marketplace</Text >
-                {/* Conditional */}
-                {isSmallDevice
-                    ? (
-                        // <View style={styles.mobileHeaderFlex} >
-                        <>
-                            <View style={styles.mobileFlexUpper} >
-                                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                    <View style={styles.mobilebgImg}>
-                                        <Image source={grid} style={styles.mobilegrid} />
-                                    </View>
-                                    <Image source={dotts} style={styles.mobiledotts} />
-                                </View>
-                                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                    <Text Text style={{ ...styles.mobileheadingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
-                                    <TouchableOpacity style={styles.mobilesortBtn} >
-                                        <Text Text style={styles.mobileheadingThree} >Price Low-High</Text >
-                                        <View style={styles.rowFlex} >
-                                            <Image source={upper} style={styles.mobileUpper} />
-                                            <Image source={lower} style={styles.mobileLower} />
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={styles.mobileFlex}>
-                                <Text Text style={styles.mobileheadingOne} >For Sale (14)</Text >
-                                <Text Text style={styles.mobileheadingTwo} >Sold(38)</Text >
-                            </View>
-                            {/* </View> */}
-                        </>
-
-                    )
-                    : (<View style={styles.headerFlex} >
-                        <View style={styles.flex}>
-                            <Text Text style={styles.headingOne} >For Sale (14)</Text >
-                            <Text Text style={styles.headingTwo} >Sold(38)</Text >
-                        </View>
-                        <View style={styles.flex} >
-                            <View style={styles.bgImg}>
-                                <Image source={grid} style={styles.grid} />
-                            </View>
-                            <Image source={dotts} style={styles.dotts} />
-                            <Text Text style={{ ...styles.headingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
-                            <TouchableOpacity style={styles.sortBtn} >
-                                <Text Text style={styles.headingThree} >Price Low-High</Text >
-                                <View style={styles.rowFlex} >
-                                    <Image source={upper} style={styles.upper} />
-                                    <Image source={lower} style={styles.lower} />
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                    </View>)
-                }
-                {/* row */}
-                {/* <View style={styles.spaceEvenly}>
+            {/* row */}
+            {/* <View style={styles.spaceEvenly}>
                     <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>NAME</Text>
                     <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(140) }}>PRICE</Text>
                     <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>LIST DATE</Text>
                     <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>EDITION</Text>
                 </View> */}
-                {/* MarketPlace LIst */}
-                <MarketPlaceList data={data} />
-                {/* Next Pages Container */}
-                <View style={styles.nextContainer} >
-                    <View style={[styles.box, isSmallDevice && styles.mobileBox]}>
-                        <Text style={[styles.num, isSmallDevice && styles.mobilenum]} >1</Text>
-                    </View>
-                    <Text style={[{ ...styles.num, marginHorizontal: baseStyle.marginHorizontal(10) }, isSmallDevice && styles.mobilenum]}> of 2</Text>
-                    <TouchableOpacity>
-                        <Image source={next} style={[styles.next, isSmallDevice && styles.mobilenext]} />
-                    </TouchableOpacity>
-                </View>
+            {/* MarketPlace LIst */}
+            <View style={{ backgroundColor: theme.colors.black }}>
+                <MarketPlaceList
+                    ListHeaderComponent={
+                        <>
+                            <ProductImage />
+                            <AboutCollectable />
+                            <View style={[styles.container, isSmallDevice && styles.mobileContainer]} >
+                                <Text Text style={[styles.heading, isSmallDevice && styles.mobileheading]} >In the marketplace</Text >
+                                {isSmallDevice
+                                    ? (
 
+                                        <>
+                                            <View style={styles.mobileFlexUpper} >
+                                                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                                    <View style={styles.mobilebgImg}>
+                                                        <Image source={grid} style={styles.mobilegrid} />
+                                                    </View>
+                                                    <Image source={dotts} style={styles.mobiledotts} />
+                                                </View>
+                                                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                                    <Text Text style={{ ...styles.mobileheadingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
+                                                    <TouchableOpacity style={styles.mobilesortBtn} >
+                                                        <Text Text style={styles.mobileheadingThree} >Price Low-High</Text >
+                                                        <View style={styles.rowFlex} >
+                                                            <Image source={upper} style={styles.mobileUpper} />
+                                                            <Image source={lower} style={styles.mobileLower} />
+                                                        </View>
+                                                    </TouchableOpacity>
+                                                </View>
+                                            </View>
+                                            <View style={styles.mobileFlex}>
+                                                <Text Text style={styles.mobileheadingOne} >For Sale (14)</Text >
+                                                <Text Text style={styles.mobileheadingTwo} >Sold(38)</Text >
+                                            </View>
+
+                                        </>
+
+                                    )
+                                    : (<View style={styles.headerFlex} >
+                                        <View style={styles.flex}>
+                                            <Text Text style={styles.headingOne} >For Sale (14)</Text >
+                                            <Text Text style={styles.headingTwo} >Sold(38)</Text >
+                                        </View>
+                                        <View style={styles.flex} >
+                                            <View style={styles.bgImg}>
+                                                <Image source={grid} style={styles.grid} />
+                                            </View>
+                                            <Image source={dotts} style={styles.dotts} />
+                                            <Text Text style={{ ...styles.headingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
+                                            <TouchableOpacity style={styles.sortBtn} >
+                                                <Text Text style={styles.headingThree} >Price Low-High</Text >
+                                                <View style={styles.rowFlex} >
+                                                    <Image source={upper} style={styles.upper} />
+                                                    <Image source={lower} style={styles.lower} />
+                                                </View>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>)}
+                            </View>
+                        </>}
+                    data={data}
+                    ListFooterComponent={
+                        <View style={styles.nextContainer} >
+                            <View style={[styles.box, isSmallDevice && styles.mobileBox]}>
+                                <Text style={[styles.num, isSmallDevice && styles.mobilenum]} >1</Text>
+                            </View>
+                            <Text style={[{ ...styles.num, marginHorizontal: baseStyle.marginHorizontal(10) }, isSmallDevice && styles.mobilenum]}> of 2</Text>
+                            <TouchableOpacity>
+                                <Image source={next} style={[styles.next, isSmallDevice && styles.mobilenext]} />
+                            </TouchableOpacity>
+                        </View>
+                    }
+                />
             </View>
-
-
             {/* Footer */}
             {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
         </>
@@ -374,7 +372,7 @@ const styles = StyleSheet.create({
         height: baseStyle.height(12),
         width: baseStyle.width(16),
     },
-    mobilenext:{
+    mobilenext: {
         height: baseStyle.height(15.39),
         width: baseStyle.width(16),
     }

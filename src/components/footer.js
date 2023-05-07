@@ -5,10 +5,10 @@ import { baseStyle, theme, routes } from "../config";
 import twitter from "../assets/images/twitter/twitter.png";
 import tiktok from "../assets/images/tiktok/tiktok.png";
 import insta from "../assets/images/insta/insta.png";
-import { useNavigation } from '@react-navigation/native';
+//import { useNavigation } from '@react-navigation/native';
 
 export const Footer = () => {
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
 
     // const goToImpressum = () => {
     //     navigation.navigate(routes.RECHTLICH)

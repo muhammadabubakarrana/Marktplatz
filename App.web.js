@@ -1,11 +1,13 @@
 import React from 'react';
 import { Navigation } from './src/navigation';
-import { Exp } from './src/screens';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 const App = () => {
     return (
-        <Navigation />
+        <SafeAreaProvider>
+            <Navigation />
+        </SafeAreaProvider>
         // https://www.youtube.com/watch?v=3hLQURJM7ws&ab_channel=LogRocket
     );
 }

@@ -1,15 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Rechtlich } from './src/screens';
-//import { Home } from './src/screens/home';
-// import { MatketPlace } from './src/screens/marketplace';
-// import { Home } from './src/screens/home';
+import { Navigation } from './src/navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 const App = () => {
   return (
-    <View>
-      <Rechtlich/>
-    </View>
+    <SafeAreaProvider>
+      <Navigation />
+    </SafeAreaProvider>
+    // https://www.youtube.com/watch?v=3hLQURJM7ws&ab_channel=LogRocket
   );
 }
 

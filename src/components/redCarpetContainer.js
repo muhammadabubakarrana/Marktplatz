@@ -7,35 +7,35 @@ import { baseStyle, theme } from '../config';
 export const RedCarpetContainer = () => {
     const listData = [
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man,
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man,
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man,
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man,
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",

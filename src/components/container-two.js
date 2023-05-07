@@ -10,57 +10,58 @@ export const ContainerTwo = () => {
     return (
         <>
             {/* 1st Block */}
-            <View style={styles.main} >
-                <Text style={[styles.mainHeading, isSmallDevice && styles.mobilemainHeading]} >Wie funktionierts?</Text>
-                <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
-                    <View style={styles.txtBlock} >
-                        <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
-                            <Text style={styles.number} >1</Text>
+            <View style={{backgroundColor: theme.colors.black}}>
+                <View style={styles.main} >
+                    <Text style={[styles.mainHeading, isSmallDevice && styles.mobilemainHeading]} >Wie funktionierts?</Text>
+                    <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
+                        <View style={styles.txtBlock} >
+                            <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
+                                <Text style={styles.number} >1</Text>
+                            </View>
+                            <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
+                            <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
                         </View>
-                        <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
-                        <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
+                        {isSmallDevice
+                            ? (<Image source={phoneSize} style={styles.mobilelogoBlock} resizeMode='contain' />)
+                            : (<Image source={block} style={styles.logoBlock} resizeMode='contain' />)}
                     </View>
-                    {isSmallDevice
-                        ? (<Image source={phoneSize} style={styles.mobilelogoBlock} resizeMode='contain' />)
-                        : (<Image source={block} style={styles.logoBlock} resizeMode='contain' />)}
-                </View>
+                </View >
+                {/* 2nd Block */}
+                < View style={styles.main} >
 
-            </View >
-            {/* 2nd Block */}
-            < View style={styles.main} >
+                    <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
+                        {
+                            isSmallDevice
+                                ? (<Image source={phoneSize} style={styles.mobilelogoBlock} resizeMode='contain' />)
+                                : (<Image source={block} style={{ ...styles.logoBlock }} resizeMode='contain' />)}
+                        <View style={styles.txtBlock} >
+                            <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
+                                <Text style={styles.number} >2</Text>
+                            </View>
+                            <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
+                            <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
+                        </View>
 
-                <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
-                    {
-                        isSmallDevice
+
+                    </View >
+                </View >
+                {/* 3rd Block */}
+                <View style={styles.main} >
+                    <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
+                        <View style={styles.txtBlock} >
+                            <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
+                                <Text style={styles.number} >3</Text>
+                            </View>
+                            <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
+                            <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
+                        </View>
+                        {isSmallDevice
                             ? (<Image source={phoneSize} style={styles.mobilelogoBlock} resizeMode='contain' />)
                             : (<Image source={block} style={{ ...styles.logoBlock }} resizeMode='contain' />)}
-                    <View style={styles.txtBlock} >
-                        <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
-                            <Text style={styles.number} >2</Text>
-                        </View>
-                        <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
-                        <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
                     </View>
-
 
                 </View >
-            </View >
-            {/* 3rd Block */}
-            <View style={styles.main} >
-                <View style={[styles.block, isSmallDevice && styles.mobileblock]} >
-                    <View style={styles.txtBlock} >
-                        <View style={[styles.rowNumber, isSmallDevice && styles.mobileRowNumber]}>
-                            <Text style={styles.number} >3</Text>
-                        </View>
-                        <Text style={[styles.blockHeading, isSmallDevice && styles.mobileblockHeading]}>Finde deinen Lieblingsstar!</Text>
-                        <Text style={[styles.blockPara, isSmallDevice && styles.mobileblockPara]}>Geburtstage, Meilensteine oder auch ein wohlverdienter Roast, der perfekte Promi dafür ist nur eine Suche entfernt. Finde deine(n) und frage sie/ihn an.</Text>
-                    </View>
-                    {isSmallDevice
-                        ? (<Image source={phoneSize} style={styles.mobilelogoBlock} resizeMode='contain' />)
-                        : (<Image source={block} style={{ ...styles.logoBlock }} resizeMode='contain' />)}
-                </View>
-
-            </View >
+            </View>
         </>
 
     );
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     mobileRowNumber: {
-        width: baseStyle.width(32),
+        width: baseStyle.width(48),
         height: baseStyle.height(48),
         backgroundColor: theme.colors.pink,
         borderRadius: baseStyle.borderRadius(48 / 2),

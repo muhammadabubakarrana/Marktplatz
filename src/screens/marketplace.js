@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
-import { Chip, CollectionList, Explore, Footer, MobileFooter, MobileNavigation, NavigationContainer, RedCarpetContainer } from '../components';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { Chip, CollectionList, Explore, Footer, MobileFooter, MobileNavigation, MyScrollView, NavigationContainer, RedCarpetContainer } from '../components';
 import explore from "../assets/images/explore/explore.png";
 import { baseStyle, theme } from '../config';
 import man from "../assets/images/man/man.png";
@@ -8,52 +8,52 @@ import man from "../assets/images/man/man.png";
 export const MarketPlace = () => {
     const data = [
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
     ];
     const listData = [
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man,//{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
@@ -66,63 +66,64 @@ export const MarketPlace = () => {
             {/*  Navigation Container */}
             {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
 
-            {/* RedCarpetContainer */}
-            <RedCarpetContainer />
+            <MyScrollView style={{backgroundColor: theme.colors.black}}>
+                {/* RedCarpetContainer */}
+                <RedCarpetContainer />
 
-            {/* Explore Container */}
-            <View style={[styles.container, isSmallDevice && styles.mobilecontainer]} >
-                <Text style={styles.heading}>Explore</Text>
-                {isSmallDevice
-                    ? (<Explore showBar data={data} />)
-                    : (<Explore data={data} />)}
+                {/* Explore Container */}
+                <View style={[styles.container, isSmallDevice && styles.mobilecontainer]} >
+                    <Text style={styles.heading}>Explore</Text>
+                    {isSmallDevice
+                        ? (<Explore showBar data={data} />)
+                        : (<Explore data={data} />)}
 
-            </View>
+                </View>
 
-            {/* Browse Container */}
-            <View style={[styles.browseContainer, isSmallDevice && styles.mobilebrowseContainer]}>
-                {isSmallDevice
-                    ? (
-                        <>
-                            <Text style={styles.MobilebrowseHeading} >Browse Schauspieler </Text>
-                            <View style={styles.mobileChipContainer}>
-                                <Chip showSort label="Sortieren nach" chipStyle={styles.chip} />
-                                <Chip showSort label="Preis" chipStyle={styles.chip} />
-                            </View>
-                        </>
-                    )
-                    : (
-                        <>
-                            <View style={styles.flex}>
-                                <Text style={styles.browseHeading} >Browse Schauspieler </Text>
-                                <Text style={styles.para} >5987 results</Text>
-                            </View>
-                            <View style={styles.chipContainer}>
-                                <Chip label="Sortieren nach" chipStyle={styles.chip} />
-                                <Chip label="Sortieren nach" chipStyle={styles.chip} checked />
-                                <Chip label="Preis" chipStyle={styles.chip} />
-                                <Chip label="Sortieren nach" chipStyle={styles.chip} />
-                                <Chip label="Sortieren nach" chipStyle={styles.chip} />
-                            </View>
-                        </>
-                    )}
+                {/* Browse Container */}
+                <View style={[styles.browseContainer, isSmallDevice && styles.mobilebrowseContainer]}>
+                    {isSmallDevice
+                        ? (
+                            <>
+                                <Text style={styles.MobilebrowseHeading} >Browse Schauspieler </Text>
+                                <View style={styles.mobileChipContainer}>
+                                    <Chip showSort label="Sortieren nach" chipStyle={styles.chip} />
+                                    <Chip showSort label="Preis" chipStyle={styles.chip} />
+                                </View>
+                            </>
+                        )
+                        : (
+                            <>
+                                <View style={styles.flex}>
+                                    <Text style={styles.browseHeading} >Browse Schauspieler </Text>
+                                    <Text style={styles.para} >5987 results</Text>
+                                </View>
+                                <View style={styles.chipContainer}>
+                                    <Chip label="Sortieren nach" chipStyle={styles.chip} />
+                                    <Chip label="Sortieren nach" chipStyle={styles.chip} checked />
+                                    <Chip label="Preis" chipStyle={styles.chip} />
+                                    <Chip label="Sortieren nach" chipStyle={styles.chip} />
+                                    <Chip label="Sortieren nach" chipStyle={styles.chip} />
+                                </View>
+                            </>
+                        )}
 
 
-                {isSmallDevice ? (<CollectionList showBar data={listData} />)
-                    : (<>
-                        <CollectionList data={listData} />
-                        <CollectionList style={{ marginVertical: baseStyle.marginVertical(20) }} data={listData} />
-                        <CollectionList data={listData} />
-                    </>)
-                }
+                    {isSmallDevice ? (<CollectionList showBar data={listData} />)
+                        : (<>
+                            <CollectionList data={listData} />
+                            <CollectionList style={{ marginVertical: baseStyle.marginVertical(20) }} data={listData} />
+                            <CollectionList data={listData} />
+                        </>)
+                    }
 
-            </View >
+                </View >
 
-            {!isSmallDevice && <View style={styles.circleFlex}>
-                <View style={styles.circle}></View>
-                <Text style={styles.circleTxt} >Page 1 of 150</Text>
-                <View style={styles.circle}></View>
-            </View>}
-
+                {!isSmallDevice && <View style={styles.circleFlex}>
+                    <View style={styles.circle}></View>
+                    <Text style={styles.circleTxt} >Page 1 of 150</Text>
+                    <View style={styles.circle}></View>
+                </View>}
+            </MyScrollView>
             {/* Footer */}
             {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
         </>

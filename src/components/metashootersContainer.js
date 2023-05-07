@@ -1,11 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 import disco from "../assets/images/disco/disco.png";
-import { baseStyle, theme } from "../config";
+import { baseStyle, routes, theme } from "../config";
+import { useNavigation } from '@react-navigation/native';
 
 
 export const MetaShooterContainer = () => {
     const isSmallDevice = Dimensions.get('window').width < 768;
+    const navigation = useNavigation();
+    const goToMarketPlace = () => {
+        navigation.navigate(routes.MARKETPLACE)
+    };
 
     return (
         <View style={styles.metashooterContainer}>
@@ -29,7 +34,7 @@ export const MetaShooterContainer = () => {
                 <View style={[styles.whiteContainer, isSmallDevice && styles.mobileWhiteContainer]} >
                     <>
                         <Text style={[styles.para, isSmallDevice && styles.mobilepara]}  >Greife auf Tausende Prominente zu und sammle einzigartige Karten deiner Stars!</Text>
-                        <TouchableOpacity style={styles.collectingBtn} >
+                        <TouchableOpacity onPress={goToMarketPlace} style={styles.collectingBtn} >
                             <Text style={styles.authTxt} >Start collecting!</Text>
                         </TouchableOpacity>
                     </>
@@ -49,7 +54,7 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.black,
         paddingBottom: baseStyle.paddingBottom(70),
         alignItems: "center",
-        paddingTop: baseStyle.paddingTop(25),
+        paddingTop: baseStyle.paddingTop(35),
         justifyContent: "center"
     },
     mainHeading: {

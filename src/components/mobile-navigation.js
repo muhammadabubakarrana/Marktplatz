@@ -28,7 +28,8 @@ export const MobileNavigation = () => {
     return (
         <>
             <View style={styles.navBar}>
-                <TouchableOpacity onPress={goToHome}>
+                {/* onPress={goToHome} */}
+                <TouchableOpacity onPress={goToHome} >
                     <Image source={LogoTwo} style={styles.logo} resizeMode='contain' />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={openModal} >

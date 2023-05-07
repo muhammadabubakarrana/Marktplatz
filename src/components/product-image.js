@@ -29,7 +29,7 @@ export const ProductImage = () => {
                         <Text style={[styles.htwo, isSmallDevice && styles.mobilehtwo]}>Trea Turner</Text>
                         <Text style={[styles.hthree, isSmallDevice && styles.mobilehthree]}>2022 All-Star ICONs</Text>
                         <View style={styles.row} >
-                            <Image source={vector} style={[styles.vector, isSmallDevice && styles.mobilevector]} />
+                            <Image source={vector} resizeMode='contain' style={[styles.vector, isSmallDevice && styles.mobilevector]} />
                             <Text style={[styles.hfour, isSmallDevice && styles.mobilehfour]}>Los Angeles Dodgers {"\n"}#6 | Second Base</Text>
                         </View>
                         <Text style={[styles.hfive, isSmallDevice && styles.mobilehfive]}>Player Bio</Text>
@@ -323,11 +323,11 @@ const styles = StyleSheet.create({
     },
     mobileartContainer: {
         width: "55%",//width / 1.9,
-        height: 250
+        height: 400
     },
     details: {
         paddingHorizontal: baseStyle.paddingHorizontal(10),
-       // width: "45%"
+        // width: "45%"
     },
     vector: {
         height: baseStyle.height(30),

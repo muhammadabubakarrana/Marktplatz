@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
-import { MetaShooterContainer, ContainerTwo, NavigationContainer, CardSection, Explore, CollectionList, Footer, MobileNavigation, MobileFooter } from '../components';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { MetaShooterContainer, MyScrollView, ContainerTwo, NavigationContainer, CardSection, Explore, CollectionList, Footer, MobileNavigation, MobileFooter } from '../components';
 import { baseStyle, theme } from '../config';
 import explore from "../assets/images/explore/explore.png";
 import man from "../assets/images/man/man.png";
+
 
 
 export const Home = () => {
@@ -11,53 +12,53 @@ export const Home = () => {
 
     const data = [
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore  //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore //{ uri: explore }
         },
         {
-            img: { uri: explore }
+            img: explore  //{ uri: explore }
         },
     ];
 
     const listData = [
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
             points: "321 CHF",
         },
         {
-            img: { uri: man },
+            img: man, //{ uri: man },
             heading: "Andrew lopez",
             para: "Lorem Ipsum, giving information on its origins, as well as a random Lipsum",
             number: "4.98 (1.367)",
@@ -85,39 +86,39 @@ export const Home = () => {
             {/* https://bootcamp.uxdesign.cc/creating-a-clean-responsive-design-system-for-react-native-web-and-mobile-2d609a0cc23e */}
             {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
 
+            <MyScrollView showsVerticalScrollIndicator={false}>
 
+                {/* // Metashooters Container */}
+                <MetaShooterContainer />
 
-            {/* // Metashooters Container */}
-            <MetaShooterContainer />
+                {/* 3rdContainer */}
+                <ContainerTwo />
 
-            {/* 3rdContainer */}
-            <ContainerTwo />
+                {/* 4th Container */}
+                <View style={styles.mainBox} >
+                    <Text style={[styles.TxtBox, isSmallDevice && styles.mobileTxtBox]}> Kollektionen</Text>
+                    <CardSection data={cardsData} />
+                </View>
 
-            {/* 4th Container */}
-            <View style={styles.mainBox} >
-                <Text style={[styles.TxtBox, isSmallDevice && styles.mobileTxtBox]}> Kollektionen</Text>
-                <CardSection data={cardsData} />
-            </View>
+                {/* 5th Container */}
+                <View style={[styles.container, isSmallDevice && styles.mobilecontainer]} >
+                    {isSmallDevice
+                        ? (<Text style={styles.mobileheading} >Marktplatz</Text>)
+                        : (<Text style={styles.heading} >Marktplatz</Text>)
+                    }
+                    {isSmallDevice
+                        ? (<Text style={styles.mobilepara} >Explore</Text>)
+                        : (<Text style={styles.para} >Explore</Text>)
+                    }
+                    <Explore data={data} />
+                    {isSmallDevice
+                        ? (<Text style={styles.mobilenextPara} >Collect your STAR today!</Text>)
+                        : (<Text style={styles.nextPara} >Collect your STAR today!</Text>)
+                    }
 
-            {/* 5th Container */}
-            <View style={[styles.container, isSmallDevice && styles.mobilecontainer]} >
-                {isSmallDevice
-                    ? (<Text style={styles.mobileheading} >Marktplatz</Text>)
-                    : (<Text style={styles.heading} >Marktplatz</Text>)
-                }
-                {isSmallDevice
-                    ? (<Text style={styles.mobilepara} >Explore</Text>)
-                    : (<Text style={styles.para} >Explore</Text>)
-                }
-                <Explore data={data} />
-                {isSmallDevice
-                    ? (<Text style={styles.mobilenextPara} >Collect your STAR today!</Text>)
-                    : (<Text style={styles.nextPara} >Collect your STAR today!</Text>)
-                }
-
-                <CollectionList data={listData} />
-            </View>
-
+                    <CollectionList data={listData} />
+                </View>
+            </MyScrollView>
             {/* Footer */}
             {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
         </>

@@ -2,7 +2,6 @@ import React from "react";
 import { Home, MarketPlace, Product, Rechtlich } from "../screens"
 import { routes } from "../config";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { FirstPara, NavigationContainer } from "../components";
 
 const Stack = createNativeStackNavigator();
 

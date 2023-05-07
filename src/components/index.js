@@ -18,3 +18,5 @@ export * from "./mobile-navigation";
 export * from "./mobile-footer";
 export * from "./header-expanded-mobile";
 export * from "./dynamic-images";
+export * from "./wrapper";
+export * from "./scroll-mobile";

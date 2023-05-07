@@ -4,12 +4,14 @@ import { baseStyle, theme } from '../config';
 import floor from "../assets/images/floor/floor.png";
 import after from "../assets/images/after/after.png";
 
-export const MarketPlaceList = ({ style, data }) => {
+export const MarketPlaceList = ({ style, data, ListHeaderComponent, ListFooterComponent }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
     return (
         <FlatList
             style={[style]}
             data={data}
+            ListHeaderComponent={ListHeaderComponent}
+            ListFooterComponent={ListFooterComponent}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
                 <View style={[styles.container, isSmallDevice && styles.mobileContainer]}>
@@ -51,7 +53,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "space-evenly",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+
     },
     mobileContainer: {
         marginTop: baseStyle.marginTop(10),

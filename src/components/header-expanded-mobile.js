@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         fontSize: baseStyle.fontSize(16),
         lineHeight: baseStyle.lineHight(24),
         fontWeight: "500",
-        opacity: 0.7,
+        opacity: 0.9,
         paddingVertical: baseStyle.paddingVertical(1),
         paddingHorizontal: baseStyle.paddingHorizontal(2),
         width: "80%",

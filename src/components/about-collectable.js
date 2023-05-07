@@ -4,32 +4,32 @@ import { DetailsList, FloorPricesList, Footer, NavigationContainer, PercentList,
 import { baseStyle, theme } from '../config';
 
 export const AboutCollectable = () => {
-    const data = [
-        {
-            num: "$0.99",
-            txt: "gold",
-            avg: "30-DAY AVG",
-            numOne: "$0.75"
-        },
-        {
-            num: "$0.99",
-            txt: "gold",
-            avg: "30-DAY AVG",
-            numOne: "$0.75"
-        },
-        {
-            num: "$0.99",
-            txt: "gold",
-            avg: "30-DAY AVG",
-            numOne: "$0.75"
-        },
-        {
-            num: "$0.99",
-            txt: "gold",
-            avg: "30-DAY AVG",
-            numOne: "$0.75"
-        },
-    ];
+    // const data = [
+    //     {
+    //         num: "$0.99",
+    //         txt: "gold",
+    //         avg: "30-DAY AVG",
+    //         numOne: "$0.75"
+    //     },
+    //     {
+    //         num: "$0.99",
+    //         txt: "gold",
+    //         avg: "30-DAY AVG",
+    //         numOne: "$0.75"
+    //     },
+    //     {
+    //         num: "$0.99",
+    //         txt: "gold",
+    //         avg: "30-DAY AVG",
+    //         numOne: "$0.75"
+    //     },
+    //     {
+    //         num: "$0.99",
+    //         txt: "gold",
+    //         avg: "30-DAY AVG",
+    //         numOne: "$0.75"
+    //     },
+    // ];
     const listData = [
         {
             floorPrice: "Floor price",
@@ -57,6 +57,7 @@ export const AboutCollectable = () => {
         },
     ];
     const isSmallDevice = Dimensions.get("window").width < 768;
+    const isMaxSmallDevice = Dimensions.get("window").width < 520;
     return (
         <>
             {/* about this Collectable */}
@@ -67,53 +68,96 @@ export const AboutCollectable = () => {
                     : (<Text Text style={styles.heading} > About this{"\n"}collectible</Text >)
                 }
                 {/* About Content */}
-                < View style={styles.aboutContainer} >
-                    {/* Left Box */}
-                    < View style={[styles.leftBox, isSmallDevice && styles.mobileLeftBox]} >
-                        {/* Minimization Box  Working on following*/}
-                        <View View style={[styles.flex, isSmallDevice && styles.mobileflex]} >
-                            <Text style={styles.header}>Collectible Stats</Text>
-                            <TouchableOpacity style={styles.minus} ></TouchableOpacity>
-                        </View >
-                        {/* Circle & Flex Box Content */}
-                        <View View style={styles.cirlceFlex} >
-                            <View style={[styles.circleContainer, isSmallDevice && styles.mobileCircleContainer]}>
-                                <View style={[styles.circle, isSmallDevice && styles.mobileCircle]}>
-                                    <Text style={[styles.circleHeading, isSmallDevice && styles.mobilecircleHeading]}>117</Text>
-                                    <Text style={{ ...styles.header, opacity: 0.8 }}>Total</Text>
+                <DetailsList
+                    ListHeaderComponent={
+                        <>
+                            {isMaxSmallDevice
+                                && (
+                                    <>
+                                        < View style={styles.mobileOne} >
+                                            <View style={[styles.flex, isSmallDevice && styles.mobileflex]} >
+                                                <Text style={styles.header}>Collectible Stats</Text>
+                                                <TouchableOpacity style={styles.minus} ></TouchableOpacity>
+                                            </View >
+                                            <View style={styles.myCirlce} >
+                                                <View style={styles.mobileMyCircle}>
+                                                    <View style={[styles.circle, isSmallDevice && styles.mobileCircle]}>
+                                                        <Text style={[styles.circleHeading, isSmallDevice && styles.mobilecircleHeading]}>117</Text>
+                                                        <Text style={{ ...styles.header, opacity: 0.8 }}>Total</Text>
+                                                    </View>
+
+                                                    {isSmallDevice
+                                                        ? (<View style={styles.mobilepercentList}>
+                                                            <PercentList />
+                                                            <PercentList blue />
+                                                            <PercentList purple />
+                                                            <PercentList grey />
+                                                        </View>)
+                                                        : (<View style={styles.percentList}>
+                                                            <PercentList />
+                                                            <PercentList blue />
+                                                            <PercentList purple />
+                                                            <PercentList grey />
+                                                        </View>)}
+                                                </View>
+                                                <DetailsList data={listData} />
+                                            </View>
+                                        </View>
+                                        <View style={styles.mobileTwo} >
+                                            <View style={styles.flex}>
+                                                <Text style={styles.header}>Floor Prices</Text>
+                                                <TouchableOpacity style={styles.minus} ></TouchableOpacity>
+                                            </View>
+                                            <FloorPricesList style={{ marginTop: baseStyle.marginTop(20) }} />
+                                        </View >
+                                    </>
+                                )}
+
+
+
+                            {!isMaxSmallDevice && (<View style={styles.aboutContainer} >
+                                < View style={[styles.leftBox, isSmallDevice && styles.mobileLeftBox]} >
+                                    <View style={[styles.flex, isSmallDevice && styles.mobileflex]} >
+                                        <Text style={styles.header}>Collectible Stats</Text>
+                                        <TouchableOpacity style={styles.minus} ></TouchableOpacity>
+                                    </View >
+                                    <View style={styles.cirlceFlex} >
+                                        <View style={[styles.circleContainer, isSmallDevice && styles.mobileCircleContainer]}>
+                                            <View style={[styles.circle, isSmallDevice && styles.mobileCircle]}>
+                                                <Text style={[styles.circleHeading, isSmallDevice && styles.mobilecircleHeading]}>117</Text>
+                                                <Text style={{ ...styles.header, opacity: 0.8 }}>Total</Text>
+                                            </View>
+
+                                            {isSmallDevice
+                                                ? (<View style={styles.mobilepercentList}>
+                                                    <PercentList />
+                                                    <PercentList blue />
+                                                    <PercentList purple />
+                                                    <PercentList grey />
+                                                </View>)
+                                                : (<View style={styles.percentList}>
+                                                    <PercentList />
+                                                    <PercentList blue />
+                                                    <PercentList purple />
+                                                    <PercentList grey />
+                                                </View>)}
+                                        </View>
+                                        <DetailsList data={listData} />
+                                    </View>
                                 </View>
-                                {/* Percentage List */}
-                                {isSmallDevice
-                                    ? (<View style={styles.mobilepercentList}>
-                                        <PercentList />
-                                        <PercentList blue />
-                                        <PercentList purple />
-                                        <PercentList grey />
-                                    </View>)
-                                    : (<View style={styles.percentList}>
-                                        <PercentList />
-                                        <PercentList blue />
-                                        <PercentList purple />
-                                        <PercentList grey />
-                                    </View>)}
-                            </View>
-                            {/* Details List */}
+                                <View style={[styles.rightBox, isSmallDevice && styles.mobilerightBox]} >
+                                    <View style={styles.flex}>
+                                        <Text style={styles.header}>Floor Prices</Text>
+                                        <TouchableOpacity style={styles.minus} ></TouchableOpacity>
+                                    </View>
+                                    <FloorPricesList style={{ marginTop: baseStyle.marginTop(20) }} />
+                                </View >
+                            </View>)}
+                        </>
+                    }
+                />
 
-                            <DetailsList data={listData} />
 
-                        </View >
-
-                    </View >
-                    {/* Right Box */}
-                    <View View style={[styles.rightBox, isSmallDevice && styles.mobilerightBox]} >
-                        <View style={styles.flex}>
-                            <Text style={styles.header}>Floor Prices</Text>
-                            <TouchableOpacity style={styles.minus} ></TouchableOpacity>
-                        </View>
-                        {/* Floor Prices List */}
-                        <FloorPricesList style={{marginTop: baseStyle.marginTop(20)}} data={data} />
-                    </View >
-                </View >
             </View >
         </>
     );
@@ -123,7 +167,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
         paddingHorizontal: baseStyle.paddingHorizontal(30),
-        paddingVertical: baseStyle.paddingVertical(30)
+        paddingVertical: baseStyle.paddingVertical(30),
     },
     mobileContainer: {
         backgroundColor: theme.colors.black,

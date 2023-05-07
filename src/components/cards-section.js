@@ -1,10 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, FlatList } from 'react-native';
-import { baseStyle, theme } from "../config";
+import { baseStyle, routes, theme } from "../config";
 import card from "../assets/images/card/card.png";
+import { useNavigation } from '@react-navigation/native';
 
 export const CardSection = ({ data, style }) => {
     const isSmallDevice = Dimensions.get('window').width < 768;
+    const navigation = useNavigation();
+    const goToProduct = () => {
+        navigation.navigate(routes.PRODUCT)
+    };
 
     return (
         // <View style={styles.mainBox} >
@@ -22,7 +27,7 @@ export const CardSection = ({ data, style }) => {
                             <Text style={styles.mobileTxtCard}> {item.title}</Text>
                             <Image source={card} style={styles.cardImage} resizeMode='contain' />
                             <Text numberOfLines={2} style={styles.mobileparaCard}> {item.para}</Text>
-                            <TouchableOpacity style={styles.mobileAuthBtn}>
+                            <TouchableOpacity onPress={goToProduct} style={styles.mobileAuthBtn}>
                                 <Text style={styles.mobileauthTxt} >Get yours!</Text>
                             </TouchableOpacity>
                         </View>
@@ -31,7 +36,7 @@ export const CardSection = ({ data, style }) => {
                             <Text style={styles.TxtCard}> {item.title}</Text>
                             <Image source={card} style={styles.WebcardImage} resizeMode='contain' />
                             <Text numberOfLines={2} style={styles.paraCard}> {item.para}</Text>
-                            <TouchableOpacity style={styles.AuthBtn}>
+                            <TouchableOpacity onPress={goToProduct} style={styles.AuthBtn}>
                                 <Text style={styles.authTxt} >Get yours!</Text>
                             </TouchableOpacity>
                         </View>
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
     WebcardImage: {
         height: baseStyle.height(113),//113
         width: baseStyle.width(175),//201
-      //  marginVertical: baseStyle.marginVertical(10)
+        //  marginVertical: baseStyle.marginVertical(10)
     },
     AuthBtn: {
         borderRadius: baseStyle.borderRadius(20),

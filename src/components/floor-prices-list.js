@@ -4,32 +4,104 @@ import { baseStyle, theme } from '../config';
 import floor from "../assets/images/floor/floor.png";
 import after from "../assets/images/after/after.png";
 
-export const FloorPricesList = ({ style, data }) => {
+export const FloorPricesList = ({ style, data, ListHeaderComponent, ListFooterComponent }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
     return (
-        <FlatList
-            style={[style]}
-            data={data}
-            showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => (
-                <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
-                    <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
-                    <View style={styles.details} >
-                        <View style={styles.flex}>
-                            <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
-                                <Text style={styles.heading}>{item.txt}</Text>
-                            </View>
-                            <Text style={styles.headingOne}>{item.avg}</Text>
+        // <FlatList
+        //     style={[style]}
+        //     data={data}
+        //     ListHeaderComponent={ListHeaderComponent}
+        //     ListFooterComponent={ListFooterComponent}
+        //     showsVerticalScrollIndicator={false}
+        //     renderItem={({ item }) => (
+        //         <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
+        //             <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
+        //             <View style={styles.details} >
+        //                 <View style={styles.flex}>
+        //                     <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
+        //                         <Text style={styles.heading}>{item.txt}</Text>
+        //                     </View>
+        //                     <Text style={styles.headingOne}>{item.avg}</Text>
+        //                 </View>
+        //                 <View style={styles.flex}>
+        //                     <Text style={{ ...styles.num, color: theme.colors.white }}>{item.num}</Text>
+        //                     <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>{item.numOne}</Text>
+        //                 </View>
+        //             </View>
+        //             <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
+        //         </TouchableOpacity>
+        //     )}
+        // />
+        <>
+            {/* //1st Container */}
+            <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
+                <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
+                <View style={styles.details} >
+                    <View style={styles.flex}>
+                        <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
+                            <Text style={styles.heading}>gold</Text>
                         </View>
-                        <View style={styles.flex}>
-                            <Text style={{ ...styles.num, color: theme.colors.white }}>{item.num}</Text>
-                            <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>{item.numOne}</Text>
-                        </View>
+                        <Text style={styles.headingOne}>30-DAY AVG</Text>
                     </View>
-                    <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
-                </TouchableOpacity>
-            )}
-        />
+                    <View style={styles.flex}>
+                        <Text style={{ ...styles.num, color: theme.colors.white }}>$0.99</Text>
+                        <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>$0.75</Text>
+                    </View>
+                </View>
+                <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
+            </TouchableOpacity>
+            {/* 2nd Container */}
+            <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
+                <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
+                <View style={styles.details} >
+                    <View style={styles.flex}>
+                        <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
+                            <Text style={styles.heading}>gold</Text>
+                        </View>
+                        <Text style={styles.headingOne}>30-DAY AVG</Text>
+                    </View>
+                    <View style={styles.flex}>
+                        <Text style={{ ...styles.num, color: theme.colors.white }}>$0.99</Text>
+                        <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>$0.75</Text>
+                    </View>
+                </View>
+                <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
+            </TouchableOpacity>
+            {/* 3rd Container */}
+            <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
+                <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
+                <View style={styles.details} >
+                    <View style={styles.flex}>
+                        <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
+                            <Text style={styles.heading}>gold</Text>
+                        </View>
+                        <Text style={styles.headingOne}>30-DAY AVG</Text>
+                    </View>
+                    <View style={styles.flex}>
+                        <Text style={{ ...styles.num, color: theme.colors.white }}>$0.99</Text>
+                        <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>$0.75</Text>
+                    </View>
+                </View>
+                <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
+            </TouchableOpacity>
+            {/* 4th Container */}
+            <TouchableOpacity style={[styles.container, isSmallDevice && styles.mobilecontainer]}>
+                <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} resizeMode='contain' />
+                <View style={styles.details} >
+                    <View style={styles.flex}>
+                        <View style={[styles.brown, isSmallDevice && styles.mobilebrown]} >
+                            <Text style={styles.heading}>gold</Text>
+                        </View>
+                        <Text style={styles.headingOne}>30-DAY AVG</Text>
+                    </View>
+                    <View style={styles.flex}>
+                        <Text style={{ ...styles.num, color: theme.colors.white }}>$0.99</Text>
+                        <Text style={{ ...styles.num, color: theme.colors.secondPurple }}>$0.75</Text>
+                    </View>
+                </View>
+                <Image style={[styles.afterImg, isSmallDevice && styles.mobileafterImg]} resizeMode='contain' source={after} />
+            </TouchableOpacity>
+        </>
     );
 };
 
@@ -82,7 +154,7 @@ const styles = StyleSheet.create({
         height: baseStyle.height(7.18),
         width: baseStyle.width(5),
     },
-    mobileafterImg:{
+    mobileafterImg: {
         height: baseStyle.height(9.18),
         width: baseStyle.width(7),
     },

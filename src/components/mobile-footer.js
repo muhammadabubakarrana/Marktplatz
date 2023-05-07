@@ -9,9 +9,21 @@ export const MobileFooter = () => {
     return (
         <View style={styles.navBar}>
             <View>
-                <TouchableOpacity style={styles.heading} >Impressum</TouchableOpacity>
-                <TouchableOpacity style={styles.heading}>Datenschutz</TouchableOpacity>
-                <TouchableOpacity style={styles.heading}>AGB</TouchableOpacity>
+                <TouchableOpacity  >
+                    <Text style={styles.heading}>
+                        Impressum
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={styles.heading}>
+                        Datenschutz
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={styles.heading}>
+                        AGB
+                    </Text>
+                </TouchableOpacity>
             </View>
             <Text style={styles.mainHeading}>Metashooters</Text>
             <View>
@@ -50,7 +62,7 @@ const styles = StyleSheet.create({
         lineHeight: baseStyle.lineHight(22),
         //fontFamily: theme.font.Bold,
         fontWeight: "800",
-       // marginVertical: baseStyle.marginVertical(6)
+        // marginVertical: baseStyle.marginVertical(6)
     },
     headingFlex: {
         color: theme.colors.white,
@@ -62,7 +74,7 @@ const styles = StyleSheet.create({
     },
     mainHeading: {
         color: theme.colors.white,
-       // marginRight: baseStyle.marginRight(30),
+        // marginRight: baseStyle.marginRight(30),
         fontSize: baseStyle.fontSize(17),
         lineHeight: baseStyle.lineHight(22),
         // fontFamily: theme.font.Bold

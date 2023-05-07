@@ -3,56 +3,80 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity, Dimensions, Image }
 import { baseStyle, theme } from '../config';
 import halfCirlce from "../assets/images/halfCirlce/halfCirlce.png";
 
-export const DetailsList = ({ style, data }) => {
+export const DetailsList = ({ style, data, ListHeaderComponent, ListFooterComponent }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
     return (
         <FlatList
             style={[style]}
             data={data}
+            ListHeaderComponent={ListHeaderComponent}
+            ListFooterComponent={ListFooterComponent}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-                <View style={[styles.container, isSmallDevice && styles.mobileContainer]}>
-                    {/* 1st box */}
-                    <View style={[styles.boxOne, isSmallDevice && styles.mobileboxOne]}>
-                        <View style={styles.flex}>
-                            <Text style={[styles.heading, isSmallDevice && styles.mobileheading]}>{item.floorPrice}</Text>
-                            <Image style={[styles.hCircle, isSmallDevice && styles.mobilehCircle]} source={halfCirlce} resizeMode='contain' />
-                        </View>
-                        <Text style={[styles.headingOne, isSmallDevice && styles.mobileheadingOne]}>{item.price}</Text>
-                    </View>
 
-
-                    {/* 2nd Box */}
+                // <View style={[styles.container, isSmallDevice && styles.mobileContainer]}>
+                <>
                     {isSmallDevice
-                        ? (<View style={styles.mobileboxTwo}>
-                            <View style={styles.flexOne}>
-                                <Text style={styles.mobileheading}>{item.heading}</Text>
-                                <View style={styles.flex}>
-                                    <Text style={styles.mobileheading} >{item.city}</Text>
-                                    {/* <View style={styles.circle}></View> */}
-                                    <Image style={styles.mobilehCircle} source={halfCirlce} resizeMode='contain' />
+                        ? (<>
+                            <View style={styles.mobileContainer}>
+                                {/* 1st Box */}
+                                <View style={styles.mobileboxOne}>
+                                    <View style={styles.flex}>
+                                        <Text style={styles.mobileheading}>{item.floorPrice}</Text>
+                                        <Image style={styles.mobilehCircle} source={halfCirlce} resizeMode='contain' />
+                                    </View>
+                                    <Text style={styles.mobileheadingOne}>{item.price}</Text>
+                                </View>
+                                {/* //2nd box */}
+                                <View style={styles.mobileboxTwo}>
+                                    <View style={styles.flexOne}>
+                                        <Text style={styles.mobileheading}>{item.heading}</Text>
+                                        <View style={styles.flex}>
+                                            <Text style={styles.mobileheading} >{item.city}</Text>
+                                            <Image style={styles.mobilehCircle} source={halfCirlce} resizeMode='contain' />
+                                        </View>
+                                    </View>
+                                    <View style={styles.flexTwo}>
+                                        <Text style={styles.mobileheadingOne}>{item.priceOne}</Text>
+                                        <Text style={styles.mobileHeadingTwo}>{item.percent}</Text>
+                                    </View>
                                 </View>
                             </View>
-                            <View style={styles.flexTwo}>
-                                <Text style={styles.mobileheadingOne}>{item.priceOne}</Text>
-                                <Text style={styles.mobileHeadingTwo}>{item.percent}</Text>
-                            </View>
-                        </View>)
-                        : (<View style={styles.boxTwo}>
-                            <View style={styles.flexOne}>
-                                <Text style={styles.heading}>{item.heading}</Text>
-                                <View style={styles.flex}>
-                                    <Text style={styles.heading} >{item.city}</Text>
-                                    {/* <View style={styles.circle}></View> */}
-                                    <Image style={styles.hCircle} source={halfCirlce} resizeMode='contain' />
+                        </>
+                        )
+                        : (
+                            <>
+                                <View style={styles.container}>
+                                    {/* 1st Box */}
+                                    <View style={[styles.boxOne, isSmallDevice && styles.mobileboxOne]}>
+                                        <View style={styles.flex}>
+                                            <Text style={[styles.heading, isSmallDevice && styles.mobileheading]}>{item.floorPrice}</Text>
+                                            <Image style={[styles.hCircle, isSmallDevice && styles.mobilehCircle]} source={halfCirlce} resizeMode='contain' />
+                                        </View>
+                                        <Text style={[styles.headingOne, isSmallDevice && styles.mobileheadingOne]}>{item.price}</Text>
+                                    </View>
+                                    {/* 2nd Box */}
+                                    <View style={styles.boxTwo}>
+                                        <View style={styles.flexOne}>
+                                            <Text style={styles.heading}>{item.heading}</Text>
+                                            <View style={styles.flex}>
+                                                <Text style={styles.heading} >{item.city}</Text>
+                                                {/* <View style={styles.circle}></View> */}
+                                                <Image style={styles.hCircle} source={halfCirlce} resizeMode='contain' />
+                                            </View>
+                                        </View>
+                                        <View style={styles.flexTwo}>
+                                            <Text style={styles.headingOne}>{item.priceOne}</Text>
+                                            <Text style={styles.headingTwo}>{item.percent}</Text>
+                                        </View>
+                                    </View>
                                 </View>
-                            </View>
-                            <View style={styles.flexTwo}>
-                                <Text style={styles.headingOne}>{item.priceOne}</Text>
-                                <Text style={styles.headingTwo}>{item.percent}</Text>
-                            </View>
-                        </View>)}
-                </View >
+                            </>)
+                    }
+
+
+
+                </>
             )}
         />
     );
@@ -69,6 +93,10 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         marginTop: baseStyle.marginTop(10),
+        // flexDirection: "row",
+        // justifyContent: "space-between",
+        // marginTop: baseStyle.marginTop(10),
+        // flexWrap: "wrap"
     },
     flexTwo: {
         flexDirection: "row",
@@ -113,7 +141,7 @@ const styles = StyleSheet.create({
         width: "80%",
         backgroundColor: theme.colors.lightBlack,
         borderRadius: baseStyle.borderRadius(5),
-        marginBottom: baseStyle.marginBottom(3)
+        marginBottom: baseStyle.marginBottom(3),
     },
     flex: {
         flexDirection: "row",

@@ -1,64 +1,74 @@
 import React, { useRef } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from "react-native";
-import { Footer, MobileFooter, MobileNavigation, NavigationContainer } from '../components';
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView, Platform } from "react-native";
+import { Footer, MobileFooter, MobileNavigation, MyScrollView, NavigationContainer, Wrapper } from '../components';
 import disco from "../assets/images/disco/disco.png";
 import { baseStyle, theme } from "../config";
 import { SpecialScrollView, SpecialView } from 'react-native-scroll-to-element';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const Rechtlich = () => {
     const isSmallDevice = Dimensions.get('window').width < 768;
     const myRef = useRef();
+    const secondRef = useRef();
+    const thirdRef = useRef();
     return (
         <>
+            {/* <Wrapper > */}
             {/*  Navigation Container */}
             {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
 
             {/* // Metashooters Container */}
-            <View style={[styles.metashooterContainer]}>
 
-                <Text style={[styles.mainHeading, isSmallDevice && styles.mobilemainHeading, { alignSelf: "center" }]} >Metashooters</Text>
-                <Text style={[styles.subHeading, isSmallDevice && styles.mobilesubHeading, { alignSelf: "center" }]} >Sammle deine Stars!</Text>
-                <View style={[styles.imageContainer, isSmallDevice && styles.mobileimageContainer]}>
-                    <Image
-                        source={disco}
-                        style={[styles.disco, isSmallDevice && styles.mobiledisco]} />
-                    <View style={[styles.whiteContainer, isSmallDevice && styles.mobilewhiteContainer]} >
+            <MyScrollView showsVerticalScrollIndicator={false} >
+                <View style={[styles.metashooterContainer]}>
 
-                        <>
-                            {/* onPress={() => myRef.current.focus()} */}
-                            <TouchableOpacity style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
-                                <Text style={styles.authTxt} >Datenschutz</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
-                                <Text style={styles.authTxt} >AGB</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
-                                <Text style={styles.authTxt} >Impressum</Text>
-                            </TouchableOpacity>
-                        </>
+                    <Text style={[styles.mainHeading, isSmallDevice && styles.mobilemainHeading, { alignSelf: "center" }]} >Metashooters</Text>
+                    <Text style={[styles.subHeading, isSmallDevice && styles.mobilesubHeading, { alignSelf: "center" }]} >Sammle deine Stars!</Text>
+                    <View style={[styles.imageContainer, isSmallDevice && styles.mobileimageContainer]}>
+                        <Image
+                            source={disco}
+                            style={[styles.disco, isSmallDevice && styles.mobiledisco]} />
+                        <View style={[styles.whiteContainer, isSmallDevice && styles.mobilewhiteContainer]} >
+
+                            <>
+                                {/* onPress={() => myRef.current.focus()} */}
+                                <TouchableOpacity onPress={() => myRef.current.focus()} style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
+                                    <Text style={styles.authTxt} >Datenschutz</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => thirdRef.current.focus()} style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
+                                    <Text style={styles.authTxt} >AGB</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => secondRef.current.focus()} style={[styles.collectingBtn, isSmallDevice && styles.mobilecollectingBtn]} >
+                                    <Text style={styles.authTxt} >Impressum</Text>
+                                </TouchableOpacity>
+                            </>
+                        </View>
                     </View>
-                </View>
 
-                {/* 1st Text Container */}
-                <View style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
-                    <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >Impressum</Text>
-                    <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
-                </View>
-                {/* 2 Text Container */}
-                <View style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
-                    <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >AGB</Text>
-                    <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
-                </View>
-                {/* 3 Text Container */}
-                {/* ref={myRef} */}
-                <SpecialView style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
-                    <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >Datenschutz</Text>
-                    <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
-                </SpecialView>
-            </View >
+                    {/* 1st Text Container */}
+                    <SpecialView ref={secondRef} style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
+                        <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >Impressum</Text>
+                        <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
+                    </SpecialView>
+                    {/* 2 Text Container */}
+                    <SpecialView ref={thirdRef} style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
+                        <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >AGB</Text>
+                        <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
+                    </SpecialView>
+                    {/* 3 Text Container */}
+                    {/* ref={myRef} */}
+                    <SpecialView ref={myRef} style={[styles.txtContainer, isSmallDevice && styles.mobiletxtContainer]} >
+                        <Text style={[styles.txtHeading, isSmallDevice && styles.mobiletxtHeading]} >Datenschutz</Text>
+                        <Text style={[styles.txtPara, isSmallDevice && styles.mobiletxtPara]} >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </Text>
+                    </SpecialView>
+                </View >
+            </MyScrollView>
+            {/* </Wrapper> */}
+
 
             {/* Footer */}
             {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
+            {/* <MobileFooter /> */}
 
         </>
     );
@@ -239,11 +249,6 @@ const styles = StyleSheet.create({
 
 
 
-
-
-import art from "../assets/images/art/art.png";
-import artleft from "../assets/images/artleft/artleft.png";
-import artright from "../assets/images/artright/artright.png";
 
 
 
