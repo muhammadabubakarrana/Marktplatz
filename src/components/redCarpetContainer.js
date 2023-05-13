@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import man from "../assets/images/man/man.png";
 import { CollectionList } from '../components';
 import { baseStyle, theme } from '../config';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const RedCarpetContainer = () => {
     const listData = [
@@ -60,8 +62,8 @@ export const RedCarpetContainer = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(30),
-        paddingVertical: baseStyle.paddingVertical(30),
+        paddingHorizontal: RFValue(30),
+        paddingVertical: RFValue(30),
 
     },
     mobilecontainer: {
@@ -76,25 +78,25 @@ const styles = StyleSheet.create({
     },
     heading: {
         color: theme.colors.white,
-        marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(24),
-        lineHeight: baseStyle.lineHight(30),
+        marginRight: RFValue(30),
+        fontSize: RFValue(24),
+        lineHeight: RFValue(30),
         fontWeight: '700'
     },
     para: {
         color: theme.colors.grey,
-        marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(8),
-        lineHeight: baseStyle.lineHight(10),
+        marginRight: RFValue(30),
+        fontSize: RFValue(8),
+        lineHeight: RFValue(10),
         fontWeight: '700',
         position: "absolute",
-        marginLeft: baseStyle.marginLeft(200),
+        marginLeft: RFValue(200),
         bottom: 0,
         opacity: 1
     },
     mobilepara: {
         color: theme.colors.grey,
-        // marginRight: baseStyle.marginRight(30),
+        // marginRight: RFValue(30),
         fontSize: baseStyle.fontSize(8),
         lineHeight: baseStyle.lineHight(10),
         fontWeight: '700',
@@ -105,10 +107,10 @@ const styles = StyleSheet.create({
     },
     nextPara: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(12),
-        lineHeight: baseStyle.lineHight(14),
+        fontSize: RFValue(12),
+        lineHeight: RFValue(14),
         fontWeight: '600',
-        marginTop: baseStyle.marginTop(25),
-        marginBottom: baseStyle.marginBottom(10)
+        marginTop: RFValue(25),
+        marginBottom: RFValue(10)
     }
 });

@@ -4,6 +4,7 @@ import { baseStyle, theme } from "../config";
 import twitter from "../assets/images/twitter/twitter.png";
 import tiktok from "../assets/images/tiktok/tiktok.png";
 import insta from "../assets/images/insta/insta.png";
+import { RFValue } from 'react-native-responsive-fontsize';
 
 export const MobileFooter = () => {
     return (
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     heading: {
         color: theme.colors.white,
         //marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(11),
+        fontSize: RFValue(11),
         lineHeight: baseStyle.lineHight(22),
         //fontFamily: theme.font.Bold,
         fontWeight: "800",
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     headingFlex: {
         color: theme.colors.white,
         //marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(11),
+        fontSize: RFValue(11),
         lineHeight: baseStyle.lineHight(22),
         //fontFamily: theme.font.Bold,
         fontWeight: "800",
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     mainHeading: {
         color: theme.colors.white,
         // marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(17),
+        fontSize: RFValue(17),
         lineHeight: baseStyle.lineHight(22),
         // fontFamily: theme.font.Bold
         fontWeight: "800"

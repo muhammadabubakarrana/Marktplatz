@@ -5,6 +5,7 @@ import Some from "../assets/Logo/Logo.png";
 import search from "../assets/images/search/search.png";
 import { Input } from '../components';
 import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 
 export const NavigationContainer = () => {
@@ -62,19 +63,20 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.lightPurple,
         flexDirection: 'row',
         alignItems: "center",
-        flexWrap: "wrap",
+        justifyContent: "space-evenly"
+        // flexWrap: "wrap",
     },
     heading: {
         color: theme.colors.white,
-        marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(15),
+        // marginRight: baseStyle.marginRight(30),
+        fontSize: RFValue(15),
         lineHeight: baseStyle.lineHight(14),
         fontWeight: 'bold'
         //fontFamily: theme.font.Bold
     },
 
     AuthBtn: {
-        borderRadius: baseStyle.borderRadius(20),
+        borderRadius: RFValue(20),
         // paddingVertical: baseStyle.paddingVertical(4),
         // paddingHorizontal: baseStyle.paddingHorizontal(20),
         borderWidth: baseStyle.borderWidth(1),
@@ -87,40 +89,40 @@ const styles = StyleSheet.create({
         color: theme.colors.white,
         textAlign: "center",
         //fontFamily: theme.font.extraBold,
-        fontSize: baseStyle.fontSize(10),
+        fontSize: RFValue(10),
         lineHeight: baseStyle.lineHight(17),
         fontWeight: "600",
     },
     logo: {
-        height: baseStyle.height(43),
-        // width: "7%", // baseStyle.width(58),
-        width: baseStyle.width(43),
-        marginHorizontal: baseStyle.marginHorizontal(44)
+        height: RFValue(43),
+        // width: "7%", // RFValue(58),
+        width: RFValue(43),
+        // marginHorizontal: RFValue(23)
     },
     flex: {
         width: "20%",
         flexDirection: "row",
         alignItems: "center",
-        borderRadius: baseStyle.borderRadius(20),
+        borderRadius: RFValue(20),
         // paddingVertical: baseStyle.paddingVertical(1),
         paddingLeft: baseStyle.paddingLeft(5),
         backgroundColor: theme.colors.lightBlack,
-        marginRight: baseStyle.marginRight(30),
+        // marginRight: baseStyle.marginRight(30),
         minWidth: baseStyle.minWidth(120)
     },
     search: {
-        height: baseStyle.height(16),
-        width: baseStyle.width(16),
-        marginRight: baseStyle.marginRight(5)
+        height: RFValue(16),
+        width: RFValue(16),
+        // marginRight: baseStyle.marginRight(5)
     },
     input: {
-        marginRight: baseStyle.marginRight(30),
+        // marginRight: baseStyle.marginRight(30),
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(10),
+        fontSize: RFValue(10),
         lineHeight: baseStyle.lineHight(10),
         fontWeight: "500",
         opacity: 0.7,
-        borderRadius: baseStyle.borderRadius(25),
+        borderRadius: RFValue(25),
         // paddingVertical: baseStyle.paddingVertical(1),
         paddingHorizontal: baseStyle.paddingHorizontal(2),
         width: 200, //"100%"

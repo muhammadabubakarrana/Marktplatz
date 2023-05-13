@@ -1,12 +1,14 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
-import { AboutCollectable, DetailsList, FloorPricesList, Footer, MarketPlaceList, MobileFooter, MobileNavigation, NavigationContainer, PercentList, ProductImage, ProgressList } from '../components';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import { AboutCollectable, DetailsList, FloorPricesList, Footer, MarketPlaceList, MobileFooter, MobileNavigation, MyScrollView, NavigationContainer, PercentList, ProductImage, ProgressList, Wrapper } from '../components';
 import { baseStyle, theme } from '../config';
 import lower from "../assets/images/lower/lower.png";
 import upper from "../assets/images/upper/upper.png";
 import grid from "../assets/images/grid/grid.png";
 import dotts from "../assets/images/dotts/dotts.png";
 import next from "../assets/images/next/next.png";
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const Product = () => {
     const data = [
@@ -54,95 +56,110 @@ export const Product = () => {
         },
     ];
     const isSmallDevice = Dimensions.get('window').width < 768;
+    const smallForNav = Dimensions.get("window").width < 910;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(Platform.OS === 'android' || Platform.OS === 'ios');
+    }, []);
+
     return (
         <>
-            {/* Navigation Container */}
-            {isSmallDevice ? (<MobileNavigation />) : (<NavigationContainer />)}
+            <Wrapper>
+                {/* Navigation Container */}
+                {/* {smallForNav ? (<MobileNavigation />) : (<NavigationContainer />)} */}
 
-            {/* row */}
-            {/* <View style={styles.spaceEvenly}>
-                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>NAME</Text>
-                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(140) }}>PRICE</Text>
-                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>LIST DATE</Text>
-                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: baseStyle.marginLeft(70) }}>EDITION</Text>
+                {/* row */}
+                {/* <View style={styles.spaceEvenly}>
+                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: RFValue(70) }}>NAME</Text>
+                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: RFValue(140) }}>PRICE</Text>
+                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: RFValue(70) }}>LIST DATE</Text>
+                    <Text style={{ ...styles.headingThree, opacity: 0.9, marginLeft: RFValue(70) }}>EDITION</Text>
                 </View> */}
-            {/* MarketPlace LIst */}
-            <View style={{ backgroundColor: theme.colors.black }}>
-                <MarketPlaceList
-                    ListHeaderComponent={
-                        <>
-                            <ProductImage />
-                            <AboutCollectable />
-                            <View style={[styles.container, isSmallDevice && styles.mobileContainer]} >
-                                <Text Text style={[styles.heading, isSmallDevice && styles.mobileheading]} >In the marketplace</Text >
-                                {isSmallDevice
-                                    ? (
+                {/* MarketPlace LIst */}
+                <View style={[{ backgroundColor: theme.colors.black }, isSmallDevice && styles.mobileFlexOne]}>
+                    <MarketPlaceList
+                        ListHeaderComponent={
+                            <>
+                                {isMobile || smallForNav ? (<MobileNavigation />) : (<NavigationContainer />)}
 
-                                        <>
-                                            <View style={styles.mobileFlexUpper} >
-                                                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                                    <View style={styles.mobilebgImg}>
-                                                        <Image source={grid} style={styles.mobilegrid} />
-                                                    </View>
-                                                    <Image source={dotts} style={styles.mobiledotts} />
-                                                </View>
-                                                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                                    <Text Text style={{ ...styles.mobileheadingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
-                                                    <TouchableOpacity style={styles.mobilesortBtn} >
-                                                        <Text Text style={styles.mobileheadingThree} >Price Low-High</Text >
-                                                        <View style={styles.rowFlex} >
-                                                            <Image source={upper} style={styles.mobileUpper} />
-                                                            <Image source={lower} style={styles.mobileLower} />
+                                <ProductImage />
+                                <AboutCollectable />
+                                <View style={[styles.container, isSmallDevice && styles.mobileContainer]} >
+                                    <Text Text style={[styles.heading, isSmallDevice && styles.mobileheading]} >In the marketplace</Text >
+                                    {isSmallDevice
+                                        ? (
+
+                                            <>
+                                                <View style={styles.mobileFlexUpper} >
+                                                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                                        <View style={styles.mobilebgImg}>
+                                                            <Image source={grid} style={styles.mobilegrid} />
                                                         </View>
-                                                    </TouchableOpacity>
+                                                        <Image source={dotts} style={styles.mobiledotts} />
+                                                    </View>
+                                                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                                        <Text Text style={{ ...styles.mobileheadingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
+                                                        <TouchableOpacity style={styles.mobilesortBtn} >
+                                                            <Text Text style={styles.mobileheadingThree} >Price Low-High</Text >
+                                                            <View style={styles.rowFlex} >
+                                                                <Image source={upper} style={styles.mobileUpper} />
+                                                                <Image source={lower} style={styles.mobileLower} />
+                                                            </View>
+                                                        </TouchableOpacity>
+                                                    </View>
                                                 </View>
-                                            </View>
-                                            <View style={styles.mobileFlex}>
-                                                <Text Text style={styles.mobileheadingOne} >For Sale (14)</Text >
-                                                <Text Text style={styles.mobileheadingTwo} >Sold(38)</Text >
-                                            </View>
-
-                                        </>
-
-                                    )
-                                    : (<View style={styles.headerFlex} >
-                                        <View style={styles.flex}>
-                                            <Text Text style={styles.headingOne} >For Sale (14)</Text >
-                                            <Text Text style={styles.headingTwo} >Sold(38)</Text >
-                                        </View>
-                                        <View style={styles.flex} >
-                                            <View style={styles.bgImg}>
-                                                <Image source={grid} style={styles.grid} />
-                                            </View>
-                                            <Image source={dotts} style={styles.dotts} />
-                                            <Text Text style={{ ...styles.headingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
-                                            <TouchableOpacity style={styles.sortBtn} >
-                                                <Text Text style={styles.headingThree} >Price Low-High</Text >
-                                                <View style={styles.rowFlex} >
-                                                    <Image source={upper} style={styles.upper} />
-                                                    <Image source={lower} style={styles.lower} />
+                                                <View style={styles.mobileFlex}>
+                                                    <Text Text style={styles.mobileheadingOne} >For Sale (14)</Text >
+                                                    <Text Text style={styles.mobileheadingTwo} >Sold(38)</Text >
                                                 </View>
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>)}
-                            </View>
-                        </>}
-                    data={data}
-                    ListFooterComponent={
-                        <View style={styles.nextContainer} >
-                            <View style={[styles.box, isSmallDevice && styles.mobileBox]}>
-                                <Text style={[styles.num, isSmallDevice && styles.mobilenum]} >1</Text>
-                            </View>
-                            <Text style={[{ ...styles.num, marginHorizontal: baseStyle.marginHorizontal(10) }, isSmallDevice && styles.mobilenum]}> of 2</Text>
-                            <TouchableOpacity>
-                                <Image source={next} style={[styles.next, isSmallDevice && styles.mobilenext]} />
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
-            </View>
+
+                                            </>
+
+                                        )
+                                        : (<View style={styles.headerFlex} >
+                                            <View style={styles.flex}>
+                                                <Text Text style={styles.headingOne} >For Sale (14)</Text >
+                                                <Text Text style={styles.headingTwo} >Sold(38)</Text >
+                                            </View>
+                                            <View style={styles.flex} >
+                                                <View style={styles.bgImg}>
+                                                    <Image source={grid} style={styles.grid} />
+                                                </View>
+                                                <Image source={dotts} style={styles.dotts} />
+                                                <Text Text style={{ ...styles.headingThree, marginHorizontal: baseStyle.marginHorizontal(10) }} >SORT BY</Text >
+                                                <TouchableOpacity style={styles.sortBtn} >
+                                                    <Text Text style={styles.headingThree} >Price Low-High</Text >
+                                                    <View style={styles.rowFlex} >
+                                                        <Image source={upper} style={styles.upper} />
+                                                        <Image source={lower} style={styles.lower} />
+                                                    </View>
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>)}
+                                </View>
+                            </>}
+                        data={data}
+                        ListFooterComponent={
+                            <>
+                                <View style={styles.nextContainer} >
+                                    <View style={[styles.box, isSmallDevice && styles.mobileBox]}>
+                                        <Text style={[styles.num, isSmallDevice && styles.mobilenum]} >1</Text>
+                                    </View>
+                                    <Text style={[{ ...styles.num, marginHorizontal: baseStyle.marginHorizontal(10) }, isSmallDevice && styles.mobilenum]}> of 2</Text>
+                                    <TouchableOpacity>
+                                        <Image source={next} style={[styles.next, isSmallDevice && styles.mobilenext]} />
+                                    </TouchableOpacity>
+                                </View>
+                                {isMobile || smallForNav ? (<MobileFooter />) : (<Footer />)}
+                            </>
+                        }
+                    />
+                </View>
+            </Wrapper>
             {/* Footer */}
-            {isSmallDevice ? (<MobileFooter />) : (<Footer />)}
+
+
         </>
     );
 };
@@ -152,18 +169,21 @@ const width = Dimensions.get("window").width;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(30),
-        paddingVertical: baseStyle.paddingVertical(30)
+        paddingHorizontal: RFValue(30),
+        paddingVertical: RFValue(30)
     },
     mobileContainer: {
         backgroundColor: theme.colors.black,
         paddingHorizontal: baseStyle.paddingHorizontal(13),
         paddingVertical: baseStyle.paddingVertical(30)
     },
+    // mobileFlexOne: {
+    //     flex: 1
+    // },
     headerFlex: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginVertical: baseStyle.marginVertical(20)
+        marginVertical: RFValue(20)
     },
     mobileHeaderFlex: {
         flexDirection: "column",
@@ -191,16 +211,16 @@ const styles = StyleSheet.create({
     spaceEvenly: {
         flexDirection: "row",
         alignItems: "center",
-        marginTop: baseStyle.marginTop(16)
+        marginTop: RFValue(16)
     },
     headingOne: {
         color: theme.colors.red,
-        fontSize: baseStyle.fontSize(14),
+        fontSize: RFValue(14),
         lineHeight: baseStyle.lineHight(16),
         fontWeight: "600",
         borderBottomColor: theme.colors.red,
         borderBottomWidth: 2,
-        paddingBottom: baseStyle.paddingBottom(4)
+        paddingBottom: RFValue(4)
     },
     mobileheadingOne: {
         color: theme.colors.red,
@@ -213,10 +233,10 @@ const styles = StyleSheet.create({
     },
     headingTwo: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(14),
+        fontSize: RFValue(14),
         lineHeight: baseStyle.lineHight(16),
         fontWeight: "600",
-        marginLeft: baseStyle.marginLeft(20)
+        marginLeft: RFValue(20)
     },
     mobileheadingTwo: {
         color: theme.colors.white,
@@ -242,7 +262,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(32),
+        fontSize: RFValue(32),
         lineHeight: baseStyle.lineHight(32),
         fontWeight: "bold",
         textAlign: "center",
@@ -250,7 +270,7 @@ const styles = StyleSheet.create({
         // textDecorationStyle: "solid",
         // textDecorationColor: 'green',
         // paddingBottom: 10
-        // marginVertical: baseStyle.marginVertical(20)
+        // marginVertical: RFValue(20)
     },
     mobileheading: {
         color: theme.colors.white,
@@ -260,28 +280,28 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     grid: {
-        height: baseStyle.height(10),
-        width: baseStyle.width(15),
+        height: RFValue(10),
+        width: RFValue(15),
     },
     mobilegrid: {
         height: baseStyle.height(20),
         width: baseStyle.width(16),
     },
     dotts: {
-        height: baseStyle.height(14),
-        width: baseStyle.width(15),
-        marginRight: baseStyle.marginRight(10)
+        height: RFValue(14),
+        width: RFValue(15),
+        marginRight: RFValue(10)
     },
     mobiledotts: {
         height: baseStyle.height(26),
         width: baseStyle.width(16),
-        // marginRight: baseStyle.marginRight(31)
+        // marginRight:RFValue(31)
     },
     bgImg: {
         backgroundColor: theme.colors.white,
-        paddingHorizontal: baseStyle.paddingHorizontal(5),
-        paddingVertical: baseStyle.paddingVertical(5),
-        marginRight: baseStyle.marginRight(10)
+        paddingHorizontal: RFValue(5),
+        paddingVertical: RFValue(5),
+        marginRight: RFValue(10)
     },
     mobilebgImg: {
         backgroundColor: theme.colors.white,
@@ -294,9 +314,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         backgroundColor: theme.colors.lightBlack,
-        paddingHorizontal: baseStyle.paddingHorizontal(10),
-        paddingVertical: baseStyle.paddingVertical(5),
-        borderRadius: baseStyle.borderRadius(5),
+        paddingHorizontal: RFValue(10),
+        paddingVertical: RFValue(5),
+        borderRadius: RFValue(5),
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.white
     },
@@ -313,12 +333,12 @@ const styles = StyleSheet.create({
     },
     rowFlex: {
         flexDirection: "column",
-        marginLeft: baseStyle.marginLeft(17)
+        marginLeft: RFValue(17)
     },
     upper: {
-        height: baseStyle.height(3),
-        width: baseStyle.width(5),
-        marginBottom: baseStyle.marginBottom(2)
+        height: RFValue(3),
+        width: RFValue(5),
+        marginBottom: RFValue(2)
     },
     mobileUpper: {
         height: baseStyle.height(6.38),
@@ -326,27 +346,27 @@ const styles = StyleSheet.create({
         marginBottom: baseStyle.marginBottom(2.8)
     },
     lower: {
-        height: baseStyle.height(3),
-        width: baseStyle.width(5),
+        height: RFValue(3),
+        width: RFValue(5),
     },
     mobileLower: {
         height: baseStyle.height(6.38),
         width: baseStyle.width(3.74),
-        marginBottom: baseStyle.marginBottom(2.8)
+        marginBottom: RFValue(2.8)
     },
     nextContainer: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        marginVertical: baseStyle.marginVertical(30)
+        marginVertical: RFValue(30)
     },
     box: {
         backgroundColor: theme.colors.thirdBlack,
         justifyContent: "center",
         alignItems: "center",
-        paddingVertical: baseStyle.paddingVertical(5),
-        paddingHorizontal: baseStyle.paddingHorizontal(10),
-        borderRadius: baseStyle.borderRadius(5)
+        paddingVertical: RFValue(5),
+        paddingHorizontal: RFValue(10),
+        borderRadius: RFValue(5)
     },
     mobileBox: {
         backgroundColor: theme.colors.thirdBlack,
@@ -358,7 +378,7 @@ const styles = StyleSheet.create({
     },
     num: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(9),
+        fontSize: RFValue(9),
         lineHeight: baseStyle.lineHight(9),
         fontWeight: "500",
     },
@@ -369,8 +389,8 @@ const styles = StyleSheet.create({
         fontWeight: "700",
     },
     next: {
-        height: baseStyle.height(12),
-        width: baseStyle.width(16),
+        height: RFValue(12),
+        width: RFValue(16),
     },
     mobilenext: {
         height: baseStyle.height(15.39),

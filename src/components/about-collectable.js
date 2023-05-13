@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { DetailsList, FloorPricesList, Footer, NavigationContainer, PercentList, ProductImage, ProgressList } from '../components';
 import { baseStyle, theme } from '../config';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const AboutCollectable = () => {
     // const data = [
@@ -56,8 +58,8 @@ export const AboutCollectable = () => {
             percent: "09.23%",
         },
     ];
-    const isSmallDevice = Dimensions.get("window").width < 768;
-    const isMaxSmallDevice = Dimensions.get("window").width < 520;
+    const isSmallDevice = Dimensions.get("window").width < 768;//520
+    const isMaxSmallDevice = Dimensions.get("window").width < 520;//520
     return (
         <>
             {/* about this Collectable */}
@@ -76,7 +78,7 @@ export const AboutCollectable = () => {
                                     <>
                                         < View style={styles.mobileOne} >
                                             <View style={[styles.flex, isSmallDevice && styles.mobileflex]} >
-                                                <Text style={styles.header}>Collectible Stats</Text>
+                                                <Text style={[styles.header, isSmallDevice && styles.mobileHeader]}>Collectible Stats</Text>
                                                 <TouchableOpacity style={styles.minus} ></TouchableOpacity>
                                             </View >
                                             <View style={styles.myCirlce} >
@@ -166,8 +168,8 @@ export const AboutCollectable = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(30),
-        paddingVertical: baseStyle.paddingVertical(30),
+        paddingHorizontal: RFValue(30),
+        paddingVertical: RFValue(30),
     },
     mobileContainer: {
         backgroundColor: theme.colors.black,
@@ -176,11 +178,11 @@ const styles = StyleSheet.create({
     },
     heading: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(32),
-        lineHeight: baseStyle.lineHight(32),
+        fontSize: RFValue(32),
+        lineHeight: RFValue(32),
         fontWeight: "bold",
         textAlign: "center",
-        marginVertical: baseStyle.marginVertical(20)
+        marginVertical: RFValue(20)
     },
     mobileHeading: {
         color: theme.colors.white,
@@ -213,6 +215,12 @@ const styles = StyleSheet.create({
     },
     header: {
         color: theme.colors.white,
+        fontSize: RFValue(12),
+        lineHeight: RFValue(14),
+        fontWeight: "700",
+    },
+    mobileHeader: {
+        color: theme.colors.white,
         fontSize: baseStyle.fontSize(12),
         lineHeight: baseStyle.lineHight(14),
         fontWeight: "700",
@@ -221,7 +229,7 @@ const styles = StyleSheet.create({
         borderBottomColor: theme.colors.white,
         borderBottomWidth: 3,
         width: "3%",
-        borderRadius: baseStyle.borderRadius(100)
+        borderRadius: RFValue(100)
     },
     flex: {
         flexDirection: "row",
@@ -235,7 +243,7 @@ const styles = StyleSheet.create({
         marginBottom: baseStyle.marginBottom(13)
     },
     cirlceFlex: {
-        marginVertical: baseStyle.marginVertical(10),
+        marginVertical: RFValue(10),
         height: "auto",
         flexWrap: "wrap"
     },
@@ -262,8 +270,8 @@ const styles = StyleSheet.create({
     },
     circleHeading: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(20),
-        lineHeight: baseStyle.lineHight(20),
+        fontSize: RFValue(20),
+        lineHeight: RFValue(20),
         fontWeight: "bold",
     },
     mobilecircleHeading: {
@@ -286,7 +294,8 @@ const styles = StyleSheet.create({
     percentList: {
         flexDirection: "column",
         alignItems: "center",
-        marginLeft: baseStyle.marginLeft(40)
+        width: "20%",
+        marginLeft: RFValue(20)
     },
     mobilepercentList: {
         flexDirection: "column",

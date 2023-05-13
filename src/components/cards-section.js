@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, FlatList }
 import { baseStyle, routes, theme } from "../config";
 import card from "../assets/images/card/card.png";
 import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const CardSection = ({ data, style }) => {
     const isSmallDevice = Dimensions.get('window').width < 768;
@@ -51,8 +53,8 @@ export const CardSection = ({ data, style }) => {
 
 const styles = StyleSheet.create({
     TxtCard: {
-        fontSize: baseStyle.fontSize(20),
-        lineHeight: baseStyle.lineHight(15),
+        fontSize: RFValue(20),
+        lineHeight: RFValue(15),
         fontFamily: theme.font.Bold,
         color: theme.colors.white,
         textAlign: "center"
@@ -65,38 +67,38 @@ const styles = StyleSheet.create({
         // textAlign: "center"
     },
     paraCard: {
-        fontSize: baseStyle.fontSize(15),
-        lineHeight: baseStyle.lineHight(15),
+        fontSize: RFValue(15),
+        lineHeight: RFValue(15),
         fontFamily: theme.font.regular,
         color: theme.colors.white,
         textAlign: "center",
     },
     mobileparaCard: {
-        fontSize: baseStyle.fontSize(11),
-        lineHeight: baseStyle.lineHight(15),
+        // fontSize: RFValue(11),
+        // lineHeight: RFValue(15),
         fontWeight: "800",
         color: theme.colors.white,
         textAlign: "center",
     },
 
     card: {
-        //width: baseStyle.width(180),
+        //width: RFValue(180),
         //width: "70%" ,
         // height: "auto",
         alignItems: "center",
 
-        //marginHorizontal: baseStyle.marginHorizontal(17),
-        marginVertical: baseStyle.marginVertical(30),
-        marginRight: baseStyle.marginRight(50),
+        //marginHorizontal: RFValue(17),
+        marginVertical: RFValue(30),
+        marginRight: RFValue(50),
         //justifyContent: "space-evenly",
     },
     mobilecard: {
-        // marginRight: baseStyle.marginRight(-40),
-        marginHorizontal: baseStyle.marginHorizontal(10),
+        // marginRight: RFValue(-40),
+        marginRight: baseStyle.marginRight(10),
         // marginLeft: baseStyle.marginLeft(-30),
         // width: "100%",
-        //marginRight: baseStyle.marginRight(50),
-        // marginRight: baseStyle.marginRight(20),
+        //marginRight: RFValue(50),
+        // marginRight: RFValue(20),
         // marginLeft: baseStyle.marginLeft(10),
         marginVertical: baseStyle.marginVertical(30),
         alignItems: "center"
@@ -104,23 +106,23 @@ const styles = StyleSheet.create({
     cardImage: {
         height: baseStyle.height(113),//113
         width: baseStyle.width(175),//201
-        marginVertical: baseStyle.marginVertical(10)
+        marginVertical: RFValue(10)
     },
     WebcardImage: {
-        height: baseStyle.height(113),//113
-        width: baseStyle.width(175),//201
-        //  marginVertical: baseStyle.marginVertical(10)
+        height: RFValue(113),//113
+        width: RFValue(175),//201
+        //  marginVertical: RFValue(10)
     },
     AuthBtn: {
-        borderRadius: baseStyle.borderRadius(20),
+        borderRadius: RFValue(20),
         //paddingVertical: baseStyle.paddingVertical(4),
         // paddingHorizontal: baseStyle.paddingHorizontal(20),
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.black,
         backgroundColor: theme.colors.lightPurple,
         width: "100%",
-        minWidth: baseStyle.minWidth(120),
-        marginTop: baseStyle.marginTop(10)
+        minWidth: baseStyle.minWidth(100),
+        marginTop: RFValue(10)
     },
     mobileAuthBtn: {
         borderRadius: baseStyle.borderRadius(25),
@@ -129,16 +131,16 @@ const styles = StyleSheet.create({
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.black,
         backgroundColor: theme.colors.lightPurple,
-        width: "30%",
-        minWidth: baseStyle.minWidth(120),
+        width: "80%",
+        //minWidth: baseStyle.minWidth(100),
         marginTop: baseStyle.marginTop(10)
     },
     authTxt: {
         color: theme.colors.white,
         textAlign: "center",
         fontWeight: "400",
-        fontSize: baseStyle.fontSize(20),
-        lineHeight: baseStyle.lineHight(30),
+        fontSize: RFValue(20),
+        lineHeight: RFValue(30),
     },
     mobileauthTxt: {
         color: theme.colors.white,

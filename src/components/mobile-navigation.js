@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexWrap: "wrap",
         justifyContent: "space-evenly",
-        paddingVertical: baseStyle.paddingVertical(17),
+        paddingVertical: baseStyle.paddingVertical(10),
         // height: 80
     },
     // heading: {
@@ -71,9 +71,9 @@ const styles = StyleSheet.create({
     // },
     AuthBtn: {
         borderRadius: baseStyle.borderRadius(25),
-        paddingVertical: baseStyle.paddingVertical(3.5),
-        paddingHorizontal: baseStyle.paddingHorizontal(15),
-        borderWidth: baseStyle.borderWidth(1),
+        //paddingVertical: baseStyle.paddingVertical(3),
+        paddingHorizontal: baseStyle.paddingHorizontal(20),
+        borderWidth: baseStyle.borderWidth(2),
         borderColor: theme.colors.black,
         backgroundColor: theme.colors.pink,
         // width: "20%",
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     authTxt: {
         color: theme.colors.white,
         textAlign: "center",
-        fontWeight: "400",
+        fontWeight: "600",
         fontSize: baseStyle.fontSize(17),
         lineHeight: baseStyle.lineHight(36)
     },

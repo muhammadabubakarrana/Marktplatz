@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from 'rea
 import disco from "../assets/images/disco/disco.png";
 import { baseStyle, routes, theme } from "../config";
 import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 
 export const MetaShooterContainer = () => {
@@ -52,15 +53,15 @@ const styles = StyleSheet.create({
     metashooterContainer: {
         width: "100%",
         backgroundColor: theme.colors.black,
-        paddingBottom: baseStyle.paddingBottom(70),
+        paddingBottom: RFValue(70),
         alignItems: "center",
-        paddingTop: baseStyle.paddingTop(35),
+        paddingTop: RFValue(35),
         justifyContent: "center"
     },
     mainHeading: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(42),
-        lineHeight: baseStyle.lineHight(22),
+        fontSize: RFValue(42),
+        lineHeight: RFValue(22),
         fontFamily: theme.font.Bold
     },
     mobilemainHeading: {
@@ -74,15 +75,15 @@ const styles = StyleSheet.create({
         textAlign: "center",
         //fontFamily: theme.font.extraBold,
         fontWeight: "600",
-        fontSize: baseStyle.fontSize(17),
-        lineHeight: baseStyle.lineHight(36)
+        fontSize: RFValue(17),
+        lineHeight: RFValue(36)
     },
     subHeading: {
         color: theme.colors.lightGrey,
-        fontSize: baseStyle.fontSize(22),
-        lineHeight: baseStyle.lineHight(15),
+        fontSize: RFValue(22),
+        lineHeight: RFValue(15),
         fontFamily: theme.font.Bold,
-        marginTop: baseStyle.marginTop(20),
+        marginTop: RFValue(20),
         // flexDirection: 'row',
         //  marginLeft: baseStyle.marginLeft(-55),
     },
@@ -91,12 +92,12 @@ const styles = StyleSheet.create({
         fontSize: baseStyle.fontSize(17),
         lineHeight: baseStyle.lineHight(36),
         fontWeight: "700",
-        //marginTop: baseStyle.marginTop(20),
+        //marginTop: RFValue(20),
     },
     para: {
         color: theme.colors.black,
-        fontSize: baseStyle.fontSize(22),
-        lineHeight: baseStyle.lineHight(29),
+        fontSize: RFValue(22),
+        lineHeight: RFValue(29),
         fontWeight: "600",
         textAlign: "center"
     },
@@ -108,9 +109,9 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     collectingBtn: {
-        borderRadius: baseStyle.borderRadius(20),
+        borderRadius: RFValue(20),
         //paddingVertical: baseStyle.paddingVertical(3),
-        paddingHorizontal: baseStyle.paddingHorizontal(20),
+        paddingHorizontal: RFValue(20),
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.black,
         backgroundColor: theme.colors.pink,
@@ -118,8 +119,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         width: "60%",
         fontFamily: theme.font.extraBold,
-        minWidth: baseStyle.minWidth(120),
-        marginTop: baseStyle.marginTop(10)
+        minWidth: RFValue(120),
+        marginTop: RFValue(10)
     },
     mobilecollectingBtn: {
         borderRadius: baseStyle.borderRadius(20),
@@ -137,9 +138,9 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         alignItems: "center",
-        width: "50%",
-        // marginVertical: baseStyle.marginVertical(5),
-        height: baseStyle.height(300)
+        width: "70%",
+        // marginVertical: RFValue(5),
+        height: RFValue(300)
     },
     mobileImage: {
         alignItems: "center",
@@ -149,27 +150,32 @@ const styles = StyleSheet.create({
     },
     img: {
         width: "100%",
-        height: baseStyle.height(300) //"auto"
+        height: RFValue(300) //"auto"
     },
     whiteContainer: {
         backgroundColor: theme.colors.white,
-        borderRadius: baseStyle.borderRadius(24),
-        //     // height: baseStyle.height(120),
+        borderRadius: RFValue(24),
+        //     // height: RFValue(120),
         alignItems: "center",
+        // minHeight: "20%",
+        // minWidth: "35%",
         //     // justifyContent: "center",
         //     // alignSelf: "center",
         //     // width: "85%",
-        paddingBottom: baseStyle.paddingBottom(7),
-        paddingTop: baseStyle.paddingTop(12),
+        paddingBottom: RFValue(7),
+        paddingTop: RFValue(12),
         position: "absolute",
         bottom: 0,
-        paddingHorizontal: baseStyle.paddingHorizontal(11)
+        paddingHorizontal: RFValue(11)
     },
     mobileWhiteContainer: {
         backgroundColor: theme.colors.white,
         borderRadius: baseStyle.borderRadius(25),
-        //     // height: baseStyle.height(120),
+        //     // height: RFValue(120),
         alignItems: "center",
+        minHeight: "20%",
+        //maxHeight: "80%",
+        // minWidth: "35%",
         //     // justifyContent: "center",
         //     // alignSelf: "center",
         //     // width: "85%",

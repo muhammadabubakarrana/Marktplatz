@@ -5,7 +5,8 @@ import { baseStyle, theme, routes } from "../config";
 import twitter from "../assets/images/twitter/twitter.png";
 import tiktok from "../assets/images/tiktok/tiktok.png";
 import insta from "../assets/images/insta/insta.png";
-//import { useNavigation } from '@react-navigation/native';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const Footer = () => {
     //const navigation = useNavigation();
@@ -50,23 +51,23 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.lightPurple,
         flexDirection: 'row',
         alignItems: "center",
-        justifyContent: "space-around",
-        flexWrap: "wrap",
+        justifyContent: "space-evenly",
+        //flexWrap: "wrap",
         paddingVertical: baseStyle.paddingVertical(5),
-        paddingLeft: baseStyle.paddingLeft(20)
+       // paddingLeft: baseStyle.paddingLeft(20)
     },
     heading: {
         color: theme.colors.white,
-        marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(13),
+        //marginRight: baseStyle.marginRight(30),
+        fontSize: RFValue(13),
         lineHeight: baseStyle.lineHight(11),
         //fontFamily: theme.font.Bold,
         fontWeight: "bold"
     },
     mainHeading: {
         color: theme.colors.white,
-        marginRight: baseStyle.marginRight(30),
-        fontSize: baseStyle.fontSize(20),
+        //marginRight: baseStyle.marginRight(30),
+        fontSize: RFValue(20),
         lineHeight: baseStyle.lineHight(17),
         // fontFamily: theme.font.Bold
         fontWeight: "bold"

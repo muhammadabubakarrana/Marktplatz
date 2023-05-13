@@ -6,9 +6,12 @@ import artleft from "../assets/images/artleft/artleft.png";
 import artright from "../assets/images/artright/artright.png";
 import vector from "../assets/images/vector/vector.png";
 import { DynamicImages } from './dynamic-images';
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const ProductImage = () => {
     const isSmallDevice = Dimensions.get("window").width < 768;
+    //const isUpperSmall = 520 < Dimensions.get("window").width < 600;
     return (
         <>
 
@@ -149,7 +152,7 @@ const styles = StyleSheet.create({
     mainHeading: {
         fontWeight: "bold",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(32),
+        fontSize: RFValue(32),
         lineHeight: baseStyle.lineHight(18),
         textAlign: "center",
     },
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
     subHeading: {
         fontWeight: "bold",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(22),
+        fontSize: RFValue(22),
         lineHeight: baseStyle.lineHight(18),
         textAlign: "center",
         opacity: 0.7,
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
     hone: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(9),
+        fontSize: RFValue(9),
         lineHeight: baseStyle.lineHight(9),
     },
     mobilehone: {
@@ -200,20 +203,20 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.greenOne,
         padding: baseStyle.padding(2),
         borderRadius: baseStyle.borderRadius(2),
-        width: baseStyle.width(79)
+        width: "25%"
     },
     mobilegreen: {
         backgroundColor: theme.colors.greenOne,
         // padding: baseStyle.padding(2),
         borderRadius: baseStyle.borderRadius(4),
         marginBottom: baseStyle.marginBottom(12),
-        width: baseStyle.width(85),
+        width: "35%"
 
     },
     htwo: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(20),
+        fontSize: RFValue(20),
         lineHeight: baseStyle.lineHight(29),
     },
     mobilehtwo: {
@@ -226,7 +229,7 @@ const styles = StyleSheet.create({
     hthree: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(12),
+        fontSize: RFValue(12),
         lineHeight: baseStyle.lineHight(14),
         opacity: 0.7
     },
@@ -240,7 +243,7 @@ const styles = StyleSheet.create({
     hfour: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(14),
+        fontSize: RFValue(14),
         lineHeight: baseStyle.lineHight(14),
         marginLeft: baseStyle.marginLeft(15)
     },
@@ -254,7 +257,7 @@ const styles = StyleSheet.create({
     hfive: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(14),
+        fontSize: RFValue(14),
         lineHeight: baseStyle.lineHight(14),
     },
     mobilehfive: {
@@ -267,7 +270,7 @@ const styles = StyleSheet.create({
     hsix: {
         fontWeight: "300",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(9),
+        fontSize: RFValue(9),
         lineHeight: baseStyle.lineHight(14),
         opacity: 0.8
     },
@@ -289,7 +292,7 @@ const styles = StyleSheet.create({
     hseven: {
         fontWeight: "500",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(9),
+        fontSize: RFValue(9),
         lineHeight: baseStyle.lineHight(14),
     },
     mobilehseven: {
@@ -318,12 +321,18 @@ const styles = StyleSheet.create({
         flexWrap: "wrap"
     },
     artContainer: {
-        width: "55%",//width / 1.9,
-        height: height / 1.2
+        width: "45%",//width / 1.9,
+        height: RFValue(400)
     },
     mobileartContainer: {
-        width: "55%",//width / 1.9,
-        height: 400
+        width: "100%",//width / 1.9,
+        // height: RFValue(400),
+        alignItems: "center"
+    },
+    mobileUpperWeb: {
+        width: "100%",
+        height: baseStyle.height(600),
+        alignItems: "center"
     },
     details: {
         paddingHorizontal: baseStyle.paddingHorizontal(10),

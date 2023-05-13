@@ -1,11 +1,16 @@
-import React from 'react';
-import { View, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, ScrollView, Platform } from 'react-native';
 import { SpecialScrollView } from 'react-native-scroll-to-element';
 
 export const MyScrollView = ({ children }) => {
-    const isSmallDevice = Dimensions.get("window").width < 768;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(Platform.OS === 'android' || Platform.OS === 'ios');
+    }, []);
+
     return (
 
-        isSmallDevice ? (<SpecialScrollView>{children}</SpecialScrollView>) : (<View  >{children}</View>)
+        isMobile ? (<SpecialScrollView>{children}</SpecialScrollView>) : (<View  >{children}</View>)
     );
 };

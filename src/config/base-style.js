@@ -10,6 +10,10 @@ export const baseStyle = {
 
     minWidth: value => moderateScale(value),
 
+    minHeight: value => verticalScale(value),
+
+    maxHeight: value => verticalScale(value),
+
     fontSize: value => scale(value),
 
     margin: value => scale(value),

@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, Image, Dimensions } from 'react-native';
 import { baseStyle, theme } from '../config';
 import lower from "../assets/images/lower/lower.png";
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 
 export const Chip = ({
@@ -40,9 +42,9 @@ export const Chip = ({
 const styles = StyleSheet.create({
     chip: {
         paddingVertical: baseStyle.paddingVertical(5),
-        paddingLeft: baseStyle.paddingLeft(20),
-        paddingRight: baseStyle.paddingRight(35),
-        borderRadius: baseStyle.borderRadius(20),
+        paddingLeft: RFValue(10),
+        paddingRight: RFValue(20),
+        borderRadius: RFValue(20),
         borderWidth: baseStyle.borderWidth(1),
         borderColor: theme.colors.white,
     },
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
         color: theme.colors.thirdGrey,
         opacity: 0.8,
         fontWeight: "700",
-        fontSize: baseStyle.fontSize(12),
+        fontSize: RFValue(12),
         lineHeight: baseStyle.lineHight(15)
     },
     lower: {

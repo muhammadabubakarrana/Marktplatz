@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import { baseStyle } from '../config';
+import { RFValue } from 'react-native-responsive-fontsize';
+
+
+
 
 
 
@@ -25,13 +29,13 @@ export const Explore = ({ style, data, showBar }) => {
 
 const styles = StyleSheet.create({
     container: {
-        height: baseStyle.height(165)
+        height: RFValue(165)
     },
     img: {
-        height: baseStyle.height(145),
-        width: baseStyle.width(200),
-        marginRight: baseStyle.marginRight(10),
-        borderRadius: baseStyle.borderRadius(8)
+        height: RFValue(120),
+        width: RFValue(125),
+        marginRight: RFValue(5),
+        borderRadius: RFValue(8)
     },
     mobileimg: {
         height: baseStyle.height(145),

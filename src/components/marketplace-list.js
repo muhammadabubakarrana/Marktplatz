@@ -3,6 +3,8 @@ import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, Dimensions }
 import { baseStyle, theme } from '../config';
 import floor from "../assets/images/floor/floor.png";
 import after from "../assets/images/after/after.png";
+import { RFValue } from 'react-native-responsive-fontsize';
+
 
 export const MarketPlaceList = ({ style, data, ListHeaderComponent, ListFooterComponent }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
@@ -48,7 +50,7 @@ export const MarketPlaceList = ({ style, data, ListHeaderComponent, ListFooterCo
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: baseStyle.marginTop(10),
+        marginTop: RFValue(10),
         //marginHorizontal: baseStyle.marginHorizontal(30),
         flexDirection: "row",
         alignItems: "flex-end",
@@ -69,8 +71,8 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     floorImg: {
-        height: baseStyle.height(30),
-        width: baseStyle.width(40),
+        height: RFValue(30),
+        width: RFValue(40),
     },
     mobilefloorImg: {
         height: baseStyle.height(73),
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     hone: {
         fontWeight: "700",
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(8),
+        fontSize: RFValue(8),
         lineHeight: baseStyle.lineHight(9),
     },
     btns: {
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
     },
     hTwo: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(12),
+        fontSize: RFValue(12),
         lineHeight: baseStyle.lineHight(14.68),
         fontWeight: "800",
     },
