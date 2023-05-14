@@ -147,15 +147,15 @@ export const MarketPlace = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: RFValue(30),
+        paddingHorizontal: RFValue(15),
         // paddingVertical: RFValue(30)
         paddingTop: RFValue(30)
     },
     mobilecontainer: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(22),
+        paddingHorizontal: baseStyle.paddingHorizontal(10),
         // paddingVertical: RFValue(30)
-        paddingTop: baseStyle.paddingTop(30)
+        paddingTop: baseStyle.paddingTop(20)
     },
     heading: {
         color: theme.colors.white,
@@ -166,23 +166,23 @@ const styles = StyleSheet.create({
     },
     browseContainer: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: RFValue(30),
-        paddingVertical: RFValue(30)
+        paddingHorizontal: RFValue(15),
+        paddingVertical: RFValue(20)
     },
     mobilebrowseContainer: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(22),
-        paddingVertical: baseStyle.paddingVertical(30)
+        paddingHorizontal: baseStyle.paddingHorizontal(10),
+        paddingVertical: baseStyle.paddingVertical(20)
     },
     para: {
         color: theme.colors.grey,
-        marginRight: RFValue(30),
+        // marginRight: RFValue(30),
         fontSize: RFValue(8),
-        lineHeight: baseStyle.lineHight(10),
+        //lineHeight: RFValue(10),
         fontWeight: 'bold',
-        position: "absolute",
-        marginLeft: RFValue(270),
-        bottom: 7,
+        // position: "absolute",
+        marginLeft: RFValue(-25),
+        bottom: -17,
         opacity: 1
     },
     mobilepara: {
@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
     flex: {
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "flex-start"
     },
     browseHeading: {
         color: theme.colors.white,
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
     circleTxt: {
         color: theme.colors.white,
         fontSize: RFValue(13),
-        lineHeight: baseStyle.lineHight(16),
+        lineHeight: RFValue(16),
         fontWeight: '400',
         marginHorizontal: RFValue(20)
     },
@@ -242,11 +243,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         backgroundColor: theme.colors.black,
         paddingTop: RFValue(35),
-        paddingBottom: RFValue(90)
+        paddingBottom: RFValue(60)
     },
     circle: {
         width: RFValue(30),
-        height: RFValue(22),
+        height: RFValue(30),
         backgroundColor: theme.colors.secondBlack,
         borderRadius: RFValue(30 / 2),
         borderWidth: baseStyle.borderWidth(2),

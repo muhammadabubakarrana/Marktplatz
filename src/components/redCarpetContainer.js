@@ -62,14 +62,14 @@ export const RedCarpetContainer = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: RFValue(20),
-        paddingVertical: RFValue(30),
+        paddingHorizontal: RFValue(15),
+        paddingVertical: RFValue(20),
 
     },
     mobilecontainer: {
         backgroundColor: theme.colors.black,
         paddingHorizontal: baseStyle.paddingHorizontal(10),
-        paddingVertical: baseStyle.paddingVertical(30),
+        paddingVertical: baseStyle.paddingVertical(20),
     },
     flex: {
         flexDirection: "row",
@@ -83,15 +83,26 @@ const styles = StyleSheet.create({
         lineHeight: RFValue(30),
         fontWeight: '700'
     },
+    // para: {
+    //     color: theme.colors.grey,
+    //     marginRight: RFValue(30),
+    //     fontSize: RFValue(8),
+    //     lineHeight: RFValue(10),
+    //     fontWeight: '700',
+    //     position: "absolute",
+    //     marginLeft: RFValue(200),
+    //     bottom: 0,
+    //     opacity: 1
+    // },
     para: {
         color: theme.colors.grey,
-        marginRight: RFValue(30),
+        // marginRight: RFValue(30),
         fontSize: RFValue(8),
-        lineHeight: RFValue(10),
-        fontWeight: '700',
-        position: "absolute",
-        marginLeft: RFValue(200),
-        bottom: 0,
+        //lineHeight: RFValue(10),
+        fontWeight: 'bold',
+        // position: "absolute",
+        marginLeft: RFValue(-25),
+        bottom: -17,
         opacity: 1
     },
     mobilepara: {
