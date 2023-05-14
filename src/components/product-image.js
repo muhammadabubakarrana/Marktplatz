@@ -71,7 +71,7 @@ export const ProductImage = () => {
                                 <Text style={[{ ...styles.hone, textAlign: "center" }, isSmallDevice && styles.mobilehBigOne]}>Get It Now</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.btn2, isSmallDevice && styles.mobileBtn2]}>
-                                <Text style={[{ ...styles.hone, textAlign: "center" }, isSmallDevice && styles.mobilehBigOne]}>Get It Now</Text>
+                                <Text style={[{ ...styles.hone, textAlign: "center" }, isSmallDevice && styles.mobilehBigOne]}>View all Listings</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: theme.colors.white,
         fontSize: RFValue(9),
-        lineHeight: baseStyle.lineHight(14),
+        lineHeight: RFValue(14),
     },
     mobilehseven: {
         fontWeight: "500",
@@ -322,6 +322,7 @@ const styles = StyleSheet.create({
     },
     artContainer: {
         width: "45%",//width / 1.9,
+        //flex: 1,
         height: RFValue(400)
     },
     mobileartContainer: {
@@ -336,6 +337,7 @@ const styles = StyleSheet.create({
     },
     details: {
         paddingHorizontal: baseStyle.paddingHorizontal(10),
+        // flex: 2
         // width: "45%"
     },
     vector: {

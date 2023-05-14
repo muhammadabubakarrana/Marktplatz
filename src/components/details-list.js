@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { baseStyle, theme } from '../config';
 import halfCirlce from "../assets/images/halfCirlce/halfCirlce.png";
+import { RFValue } from 'react-native-responsive-fontsize';
 
 export const DetailsList = ({ style, data, ListHeaderComponent, ListFooterComponent }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
@@ -48,12 +49,12 @@ export const DetailsList = ({ style, data, ListHeaderComponent, ListFooterCompon
                             <>
                                 <View style={styles.container}>
                                     {/* 1st Box */}
-                                    <View style={[styles.boxOne, isSmallDevice && styles.mobileboxOne]}>
+                                    <View style={styles.boxOne}>
                                         <View style={styles.flex}>
-                                            <Text style={[styles.heading, isSmallDevice && styles.mobileheading]}>{item.floorPrice}</Text>
-                                            <Image style={[styles.hCircle, isSmallDevice && styles.mobilehCircle]} source={halfCirlce} resizeMode='contain' />
+                                            <Text style={styles.heading}>{item.floorPrice}</Text>
+                                            <Image style={styles.hCircle} source={halfCirlce} resizeMode='contain' />
                                         </View>
-                                        <Text style={[styles.headingOne, isSmallDevice && styles.mobileheadingOne]}>{item.price}</Text>
+                                        <Text style={styles.headingOne}>{item.price}</Text>
                                     </View>
                                     {/* 2nd Box */}
                                     <View style={styles.boxTwo}>
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginTop: baseStyle.marginTop(10),
+        marginTop: RFValue(10),
         flexWrap: "wrap"
     },
     mobileContainer: {
@@ -113,10 +114,11 @@ const styles = StyleSheet.create({
     },
     boxOne: {
         flex: 1,
-        paddingVertical: baseStyle.paddingVertical(5),
+        paddingVertical: RFValue(5),
         alignItems: "center",
         backgroundColor: theme.colors.lightBlack,
-        borderRadius: baseStyle.borderRadius(5)
+        borderRadius: RFValue(5),
+        minWidth: "35%"
     },
     mobileboxOne: {
         width: "80%",
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: baseStyle.paddingHorizontal(10),
         backgroundColor: theme.colors.lightBlack,
         borderRadius: baseStyle.borderRadius(5),
-        marginLeft: baseStyle.marginLeft(10)
+        marginLeft: baseStyle.marginLeft(10),
     },
     mobileboxTwo: {
         paddingVertical: baseStyle.paddingVertical(24),
@@ -156,8 +158,8 @@ const styles = StyleSheet.create({
     },
     heading: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(10),
-        lineHeight: baseStyle.lineHight(12),
+        fontSize: RFValue(10),
+        lineHeight: RFValue(12),
         fontWeight: "500",
         opacity: 0.7
     },
@@ -170,8 +172,8 @@ const styles = StyleSheet.create({
     },
     headingOne: {
         color: theme.colors.white,
-        fontSize: baseStyle.fontSize(10),
-        lineHeight: baseStyle.lineHight(12),
+        fontSize: RFValue(10),
+        lineHeight: RFValue(12),
         fontWeight: "600",
     },
     mobileheadingOne: {
@@ -183,8 +185,8 @@ const styles = StyleSheet.create({
     },
     headingTwo: {
         color: theme.colors.green,
-        fontSize: baseStyle.fontSize(10),
-        lineHeight: baseStyle.lineHight(12),
+        fontSize: RFValue(10),
+        lineHeight: RFValue(12),
         fontWeight: "500",
     },
     mobileHeadingTwo: {

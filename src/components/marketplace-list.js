@@ -20,8 +20,8 @@ export const MarketPlaceList = ({ style, data, ListHeaderComponent, ListFooterCo
                     <View style={styles.imgContent}>
                         <Image style={[styles.floorImg, isSmallDevice && styles.mobilefloorImg]} source={floor} />
                         <View style={{ marginLeft: baseStyle.marginLeft(5) }}>
-                            <View style={styles.green}>
-                                <Text style={styles.hone}>UNCOMMON</Text>
+                            <View style={[styles.green, isSmallDevice && styles.mobileGreen]}>
+                                <Text style={[styles.hone, isSmallDevice && styles.mobileHone]}>UNCOMMON</Text>
                             </View>
                             <Text style={[styles.hTwo, isSmallDevice && styles.mobilehTwo]}>{item.num}</Text>
                         </View>
@@ -82,6 +82,12 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         color: theme.colors.white,
         fontSize: RFValue(8),
+        lineHeight: RFValue(9),
+    },
+    mobileHone: {
+        fontWeight: "700",
+        color: theme.colors.white,
+        fontSize: baseStyle.fontSize(8),
         lineHeight: baseStyle.lineHight(9),
     },
     btns: {
@@ -106,21 +112,33 @@ const styles = StyleSheet.create({
     },
     green: {
         backgroundColor: theme.colors.greenOne,
+        paddingTop: RFValue(3),
+        paddingBottom: RFValue(3),
+        paddingLeft: RFValue(5),
+        paddingRight: RFValue(3.61),
+        borderRadius: RFValue(5),
+        // width: baseStyle.width(79)
+    },
+    mobileGreen: {
+        backgroundColor: theme.colors.greenOne,
         paddingTop: baseStyle.paddingTop(3),
         paddingBottom: baseStyle.paddingBottom(3),
         paddingLeft: baseStyle.paddingLeft(5),
         paddingRight: baseStyle.paddingRight(3.61),
         borderRadius: baseStyle.borderRadius(5),
-        // width: baseStyle.width(79)
     },
     hTwo: {
         color: theme.colors.white,
         fontSize: RFValue(12),
-        lineHeight: baseStyle.lineHight(14.68),
+        lineHeight: RFValue(14.68),
         fontWeight: "800",
     },
     mobilehTwo: {
-        marginTop: baseStyle.marginTop(5)
+        marginTop: baseStyle.marginTop(5),
+        color: theme.colors.white,
+        fontSize: RFValue(12),
+        lineHeight: baseStyle.lineHight(14.68),
+        fontWeight: "800",
     },
     // mobileSetMRGB: {
     //    // marginBottom: baseStyle.marginBottom(-21)

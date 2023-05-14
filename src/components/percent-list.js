@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { baseStyle, theme } from '../config';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 export const PercentList = ({ blue, purple, grey }) => {
     const isSmallDevice = Dimensions.get("window").width < 768;
@@ -46,9 +47,9 @@ const styles = StyleSheet.create({
     },
     line: {
         borderBottomColor: theme.colors.white,
-        borderBottomWidth: 3,
-        width: "290%",
-        borderRadius: baseStyle.borderRadius(50)
+        borderBottomWidth: RFValue(3),
+        width: "100%",
+        borderRadius: RFValue(5)
     },
     listedText: {
         color: theme.colors.white,

@@ -62,13 +62,13 @@ export const RedCarpetContainer = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: RFValue(30),
+        paddingHorizontal: RFValue(20),
         paddingVertical: RFValue(30),
 
     },
     mobilecontainer: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: baseStyle.paddingHorizontal(22),
+        paddingHorizontal: baseStyle.paddingHorizontal(10),
         paddingVertical: baseStyle.paddingVertical(30),
     },
     flex: {

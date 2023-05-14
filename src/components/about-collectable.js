@@ -118,7 +118,7 @@ export const AboutCollectable = () => {
 
 
                             {!isMaxSmallDevice && (<View style={styles.aboutContainer} >
-                                < View style={[styles.leftBox, isSmallDevice && styles.mobileLeftBox]} >
+                                <View style={[styles.leftBox, isSmallDevice && styles.mobileLeftBox]} >
                                     <View style={[styles.flex, isSmallDevice && styles.mobileflex]} >
                                         <Text style={styles.header}>Collectible Stats</Text>
                                         <TouchableOpacity style={styles.minus} ></TouchableOpacity>
@@ -166,15 +166,16 @@ export const AboutCollectable = () => {
 };
 
 const styles = StyleSheet.create({
+
     container: {
         backgroundColor: theme.colors.black,
-        paddingHorizontal: RFValue(30),
-        paddingVertical: RFValue(30),
+        paddingHorizontal: RFValue(10),
+        paddingVertical: RFValue(10),
     },
     mobileContainer: {
         backgroundColor: theme.colors.black,
         paddingHorizontal: baseStyle.paddingHorizontal(20),
-        paddingVertical: baseStyle.paddingVertical(30)
+        paddingVertical: baseStyle.paddingVertical(20)
     },
     heading: {
         color: theme.colors.white,
@@ -245,7 +246,7 @@ const styles = StyleSheet.create({
     cirlceFlex: {
         marginVertical: RFValue(10),
         height: "auto",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
     },
     circle: {
         width: 180,
@@ -284,7 +285,7 @@ const styles = StyleSheet.create({
     circleContainer: {
         flexDirection: "row",
         alignItems: "center",
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     },
     mobileCircleContainer: {
         flexDirection: "column",
@@ -292,15 +293,16 @@ const styles = StyleSheet.create({
         // height: 500
     },
     percentList: {
-        flexDirection: "column",
-        alignItems: "center",
-        width: "20%",
-        marginLeft: RFValue(20)
+        // flexDirection: "column",
+        // alignItems: "center",
+        // width: "50%",
+        flex: .7,
+        marginLeft: RFValue(10)
     },
     mobilepercentList: {
         flexDirection: "column",
         //alignItems: "center",
-        width: "30%",
+        width: "75%",
         marginTop: baseStyle.marginTop(41)
     }
 

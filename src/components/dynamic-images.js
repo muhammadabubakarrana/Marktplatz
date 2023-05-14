@@ -4,6 +4,7 @@ import art from "../assets/images/art/art.png";
 import artleft from "../assets/images/artleft/artleft.png";
 import artright from "../assets/images/artright/artright.png";
 import { baseStyle } from '../config';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const photos = [
     // { id: 1, uri: art },
@@ -67,13 +68,13 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     mainImage: {
-        height: baseStyle.height(200),
-        width: baseStyle.width(290)
+        height: RFValue(200),
+        width: RFValue(290)
     },
     smallImages: {
-        height: baseStyle.height(60),
-        width: baseStyle.width(60),
-        margin: baseStyle.margin(7)
+        height: RFValue(60),
+        width: RFValue(60),
+        margin: RFValue(7)
     },
     mobileMainImage: {
         height: baseStyle.height(250),

@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     headingOne: {
         color: theme.colors.red,
         fontSize: RFValue(14),
-        lineHeight: baseStyle.lineHight(16),
+        lineHeight: RFValue(16),
         fontWeight: "600",
         borderBottomColor: theme.colors.red,
         borderBottomWidth: 2,
@@ -228,13 +228,13 @@ const styles = StyleSheet.create({
         lineHeight: baseStyle.lineHight(24),
         fontWeight: "700",
         borderBottomColor: theme.colors.red,
-        borderBottomWidth: 2,
+        borderBottomWidth: RFValue(2),
         paddingBottom: baseStyle.paddingBottom(18)
     },
     headingTwo: {
         color: theme.colors.white,
         fontSize: RFValue(14),
-        lineHeight: baseStyle.lineHight(16),
+        lineHeight: RFValue(16),
         fontWeight: "600",
         marginLeft: RFValue(20)
     },
